@@ -1,0 +1,117 @@
+form {
+	background: $background-color-block;
+	border-bottom: 4px solid $border-color-block;
+	padding: 10px 14px;
+	
+  	@include marginBottomBetweenContent;
+  
+    max-width: 100%;
+    
+    div.form-input {
+        clear: both;
+        margin-bottom: 10px;
+        max-width: 100%;
+        
+        label, input, textarea, select, p.error {
+            font-size: 1.4rem;  
+            max-width: 100%;
+        }
+        label {
+            width: 180px;
+            padding: 5px 5px 5px 0;
+            display: inline-block;  
+            cursor: pointer;
+            vertical-align: middle;
+        }
+        input, textarea, select {
+            padding: 5px;
+            display: inline-block;  
+            color: $text-color;
+            border: 1px solid lighten($background-color-item, 10%);
+            transition: border-color 0.25s, background 0.25s;
+            vertical-align: middle;
+            margin: 0;
+            
+            &::placeholder {
+                opacity: 1; 
+            }
+            
+            
+            
+            &:hover {
+                border-color: $border-color-item;
+                cursor: pointer;
+            }
+            &:focus {
+                background: lighten($background-color-item, 10%);
+               
+                border-color: transparent;
+                
+                &,
+                &::placeholder {
+                    color: #fff;
+                }
+            }
+           
+           
+            
+            
+        }
+       
+		textarea {
+			width: 100%;
+			max-width: $width-tablet;
+			height: 150px;
+		}
+    
+        option { /* Pour écraser les effets de :focus sur l'élément select */
+            background: #fff;
+            color: $text-color;
+        }
+       
+		&.error {
+       		 input, textarea, select {
+       		 	&:not(:focus) {
+       		 		border-color: $error-color;
+       		 	}	
+       		 }
+		}
+    
+        input[type=file] {
+            padding: 0 5px;
+        }
+        select {
+            padding: 5px 0;  
+			margin: 5px 5px 5px 0;
+        }
+        p.error {
+            color: $error-color;
+            margin: 5px 0 0;
+        }
+    
+        label + img {
+            margin-right: 10px; 
+        }
+    }
+
+    div.form-input input[type="submit"] {
+        background: lighten($background-color-item, 10%);
+        color: #fff;
+        border: 1px solid $border-color-item;
+        padding: 5px 14px;
+        transition: background 0.25s;
+        &:hover {
+            cursor: pointer;
+            background: $background-color-item;
+            border-color: transparent;
+        }
+        &:focus {
+        	box-shadow: 0 0 0 3px lighten($background-color-item, 40%);
+            border-color: transparent;
+        }
+    }
+   
+	div.form-input-submit {
+		margin-bottom: 0;	
+	}
+}

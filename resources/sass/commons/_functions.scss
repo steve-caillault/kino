@@ -1,0 +1,19 @@
+@mixin marginBottomBetweenContent() {
+	
+	margin-bottom: 10px;
+	@include tablet {
+		margin-bottom: 20px;	
+	}
+	
+}
+
+@mixin scrollBehavior($value) {
+	@if($value == smooth) {
+		&:not(.without-scroll-behavior) {
+			scroll-behavior: smooth;
+			@media (prefers-reduced-motion: reduce) {
+		    	scroll-behavior: auto;
+		  	}
+		}
+	}
+}
