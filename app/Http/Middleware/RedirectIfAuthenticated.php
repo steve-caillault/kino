@@ -21,9 +21,13 @@ class RedirectIfAuthenticated
     {
         $guards = empty($guards) ? [null] : $guards;
 
+        $isAdminUri = str_starts_with($request->route()->uri(), 'admin');
+        $redirectRouteName = ($isAdminUri) ? 'admin.index' : 'home';
+        $redirectUrl = route($redirectRouteName);
+
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+                return redirect($redirectUrl);
             }
         }
 

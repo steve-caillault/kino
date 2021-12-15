@@ -86,8 +86,15 @@ final class User extends Authenticatable
      */
     public static function permissionsAllowed() : array
     {
-        return [ 
-            Permission::ADMIN->name,
-        ];
+        return array_column(Permission::cases(), 'name');
+    }
+    
+    /**
+     * Retourne si l'utilisateur est administrateur
+     * @return bool
+     */
+    public function isAdministrator() : bool
+    {
+        return $this->permissions->collect()->contains(Permission::ADMIN->name);
     }
 }

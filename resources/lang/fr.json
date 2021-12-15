@@ -1,0 +1,16 @@
+{
+    "meta.title.login": "Connexion au site Kino",
+    "meta.title.admin.home": "Panneau d'administration du site Kino",
+
+    "title.login": "Connexion au site Kino",
+
+    "form.submit.label": "Enregistrer",
+    
+    "form.auth.fields.nickname": "Nom d'utilisateur",
+    "form.auth.fields.password": "Mot de passe",
+    "form.auth.fields.remember": "Enregistrer",
+    "form.auth.fields.submit": "Se connecter",
+
+    "error.forbidden": "Vous n'êtes pas autorisé à accéder à cette page."
+
+}

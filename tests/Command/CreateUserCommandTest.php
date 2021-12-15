@@ -7,10 +7,6 @@
 namespace Tests\Command;
 
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Foundation\Testing\{
-    DatabaseTransactions,
-    WithFaker
-};
 use Symfony\Component\Console\Exception\RuntimeException;
 /***/
 use Tests\TestCase;
@@ -18,7 +14,6 @@ use App\Models\User;
 
 final class CreateUserCommandTest extends TestCase
 {
-    use DatabaseTransactions;
 
     /**
      * Setup the test environment.

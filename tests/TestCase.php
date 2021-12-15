@@ -2,12 +2,15 @@
 
 namespace Tests;
 
-use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
+use Illuminate\Foundation\Testing\{
+    TestCase as BaseTestCase,
+    DatabaseTransactions
+};
 use Faker\Generator as GeneratorFaker;
 
 abstract class TestCase extends BaseTestCase
 {
-    use CreatesApplication;
+    use CreatesApplication, DatabaseTransactions;
 
     /**
      * Retourne une instance de Faker
