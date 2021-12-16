@@ -8,11 +8,18 @@
 
         <title>@yield('meta-title', 'Kino')</title>
 
+        @section('stylesheets')
         <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
+        @show
     </head>
     <body>
         <div id="page">
+            <header class="main">
+                @yield('header-main-nav')
+                <h1>@yield('page-title', trans('title.default'))</h1>
+            </header>
             <main>
+                @include('misc.flash')
                 @yield('content')
             </main>
         </div>

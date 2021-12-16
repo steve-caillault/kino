@@ -42,7 +42,7 @@ ul {
 
 h1 {
 	padding: 10px;
-	margin: 0 0 20px;
+	@include marginBottomBetweenContent;
 	
 	font-size: 2.4rem;
 	@include desktop {

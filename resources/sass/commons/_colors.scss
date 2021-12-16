@@ -6,4 +6,17 @@ $border-color-item: #262020;
 
 $text-color: #262020;
 $error-color: #742d33;
-$anchor-color: #26838b;
+$anchor-color: #23757c;
+
+$colorsGroups: (
+	"green": (
+		"border": green,
+		"background": lighten(green, 70%),
+		"text": green
+	),
+	"red": (
+		"border": red,
+		"background": lighten(red, 45%),
+		"text": red
+	)
+);
