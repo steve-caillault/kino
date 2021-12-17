@@ -4,9 +4,11 @@
 @lang('meta.title.login')
 @endsection
 
-@section('content')
+@section('page-title')
+@lang('title.login')
+@endsection
 
-<h1>@lang('title.login')</h1>
+@section('content')
 
 <form method="POST">
     @csrf

@@ -1,16 +1,36 @@
 {
     "meta.title.login": "Connexion au site Kino",
     "meta.title.admin.home": "Panneau d'administration du site Kino",
+    "meta.title.admin.user": "Gestion des paramètres de :user",
 
+    "title.default": "Kino, réservation de places de cinéma",
     "title.login": "Connexion au site Kino",
-
-    "form.submit.label": "Enregistrer",
+    "title.admin.user": "Gestion des paramètres de votre compte Kino",
     
+    "form.submit.label": "Enregistrer",
+    "form.invalidated": "Il y a des valeurs incorrectes dans le formulaire.",
     "form.auth.fields.nickname": "Nom d'utilisateur",
     "form.auth.fields.password": "Mot de passe",
     "form.auth.fields.remember": "Enregistrer",
     "form.auth.fields.submit": "Se connecter",
+    "form.user.success": "Votre compte a été mis à jour.",
+    "form.user.failure": "Une erreur s'est produite lors de la mise à jour de votre compte.",
 
-    "error.forbidden": "Vous n'êtes pas autorisé à accéder à cette page."
+    "form.user.fields.nickname": "Nom d'utilisateur",
+    "form.user.fields.email": "Adresse email",
+    "form.user.fields.first_name": "Prénom",
+    "form.user.fields.last_name": "Nom",
+    "form.user.fields.new_password": "Nouveau mot de passe",
+    "form.user.fields.new_password_confirmation": "Confirmation du mot de passe",
+
+    "form.error.select.no_option": "Aucune option pour le champs :name.",
+
+    
+
+    "error.forbidden": "Vous n'êtes pas autorisé à accéder à cette page.",
+
+    "anchor.user.edit.alt_label": "Modifier les paramètres de votre compte.",
+    "button.logout.label": "Se déconnecter",
+    "button.logout.alt_label": "Se déconnecter du site."
 
 }
