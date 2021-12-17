@@ -38,6 +38,9 @@ Route::group([
         'middleware' => [ 'auth', 'admin', ],
     ], function() {
         Route::get('', 'HomeController@index')->name('admin.index');
+
+        // Edition du compte
+        Route::match([ 'get', 'post', ], 'user', 'UserController@index')->name('admin.user.index');
     });
 });
 

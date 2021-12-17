@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.admin')
 
 @section('meta-title')
 @lang('meta.title.admin.home')

@@ -7,10 +7,11 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Http\Request;
 
 final class HomeController extends AbstractController
 {
-    public function index() : Renderable
+    public function index(Request $request) : Renderable
     {
         return view('admin.home');
     }
