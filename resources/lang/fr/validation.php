@@ -13,6 +13,7 @@ return [
             'min' => 'L\'adresse email doit avoir au moins :min caractères.',
             'max' => 'L\'adresse email doit avoir au plus :max caractères.',
             'email' => 'L\'adresse email n\'est pas valide.',
+            'unique' => 'Cette adresse email est déjà utilisée.',
         ],
         'first_name' => [
             'required' => 'Le prénom est nécessaire.',
