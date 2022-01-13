@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Factory pour la création d'un utilisateur
+ */
+
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -11,7 +15,7 @@ final class AdminUserFactory extends Factory
      *
      * @return array
      */
-    public function definition()
+    public function definition() : array
     {
         return [
             'nickname' => $this->faker->userName(),
