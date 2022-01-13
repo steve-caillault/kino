@@ -29,10 +29,15 @@
 
     "error.forbidden": "Vous n'êtes pas autorisé à accéder à cette page.",
 
-    "anchor.user.edit.alt_label": "Modifier les paramètres de votre compte.",
+    "menu.user.edit.alt_label": "Modifier les paramètres de votre compte.",
     "button.logout.label": "Se déconnecter",
     "button.logout.alt_label": "Se déconnecter du site.",
 
 
-    "message.admin.home": "Choisissez un lien dans le menu"
+    "menu.movie-rooms.list.label": "Salles de cinéma",
+    "menu.movie-rooms.list.alt_label": "Gestion de la liste des salles de cinéma.",
+    "menu.movie-rooms.add.label": "Ajouter une salle",
+    "menu.movie-rooms.add.alt_label": "Ajouter une salle de cinéma.",
+
+    "message.admin.home": "Choisissez un lien dans le menu."
 }

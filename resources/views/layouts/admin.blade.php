@@ -5,8 +5,13 @@
 @endsection
 
 @section('header-main-nav')
-<div class="user">
-    <a href="{{ route('admin.user.index') }}" title="@lang('anchor.user.edit.alt_label')">{{ Auth::user()->nickname }}</a>
+<nav class="user">
+    <a href="{{ route('admin.user.index') }}" title="@lang('menu.user.edit.alt_label')">{{ Auth::user()->nickname }}</a>
     <a href="{{ route('admin.auth.logout') }}" title="@lang('button.logout.alt_label')">@lang('button.logout.label')</a>
-</div>
+</nav>
+<nav class="modules">
+    <a href="{{ route('admin.movie-rooms.list') }}" title="@lang('menu.movie-rooms.list.alt_label')">
+        @lang('menu.movie-rooms.list.label')
+    </a>
+</nav>
 @endsection

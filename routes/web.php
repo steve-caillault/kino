@@ -22,25 +22,43 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::group([
     'prefix' => 'admin',
     'namespace' => 'Admin',
+    'as' => 'admin.',
 ], function() {
 
     // Authentification
     Route::group([
         'prefix' => 'auth',
         'namespace' => 'Auth',
+        'as' => 'auth.',
     ], function() {
-        Route::get('login', 'LoginController@showLoginForm')->name('admin.auth.login');
+        Route::get('login', 'LoginController@showLoginForm')->name('login');
         Route::post('login', 'LoginController@login');
-        Route::get('logout', 'LoginController@logout')->name('admin.auth.logout');
+        Route::get('logout', 'LoginController@logout')->name('logout');
     });
    
     Route::group([
         'middleware' => [ 'auth:admin', 'admin', ],
     ], function() {
-        Route::get('', 'HomeController@index')->name('admin.index');
+        Route::get('', 'HomeController@index')->name('index');
 
         // Edition du compte
-        Route::match([ 'get', 'post', ], 'user', 'UserController@index')->name('admin.user.index');
+        Route::match([ 'get', 'post', ], 'user', 'UserController@index')->name('user.index');
+
+        // Gestion des salles de cinéma
+        Route::group([
+            'prefix' => 'movie-rooms',
+            'namespace' => 'MovieRooms',
+            'as' => 'movie-rooms.'
+        ], function() {
+            // Liste des salles
+            Route::get('', 'ListController@index')->name('list');
+            // Ajout d'une salle
+            Route::match([ 'get', 'post' ], 'add', 'AddController@index')->name('add');
+            // Edition d'une salle
+            Route::match([ 'get', 'post' ], '{movieRoomPublicId}/edit', 'EditController@index')
+                ->name('add')
+                ->where('movieRoomPublicId', '[^\/]+');
+        });
     });
 });
 

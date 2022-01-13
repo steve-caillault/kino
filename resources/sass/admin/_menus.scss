@@ -1,7 +1,31 @@
 header.main {
-    div.user {
+    nav {
         display: flex;
+        a {
+            padding: 10px 14px;
+        }
+        
+    }
+    nav.user {
         justify-content: space-between;
-        padding: 10px 14px;
+    }
+
+    nav.modules {
+        background: $anchor-color;
+        justify-content: center;
+        margin-bottom: 2px;
+        a {
+            display: block;
+            width: 100%;
+            &:not(:last-of-type) {
+                border-right: 2px solid $blank-color;
+            }
+            text-align: center;
+            color: $blank-color;
+            &:hover {
+                text-decoration: none;
+                background-color: lighten($anchor-color, 10%);
+            }
+        }
     }
 }
