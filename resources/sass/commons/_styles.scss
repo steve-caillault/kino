@@ -7,9 +7,9 @@ p.with-color {
 	padding: 10px;
 	@include marginBottomBetweenContent;
 	
-	background: darken(#fff, 10%);
-	border-left: 4px solid lighten(#000, 30%);
-	color: lighten(#000, 30%);
+	background: darken($blank-color, 10%);
+	border-left: 4px solid lighten($darken-color, 30%);
+	color: lighten($darken-color, 30%);
 	
 	@each $colorIndex, $colors in $colorsGroups {
 		&.with-color-#{ $colorIndex } {
@@ -18,4 +18,25 @@ p.with-color {
 		}
 	}
 	
+}
+
+.button {
+	display: inline-block;
+	padding: 5px 10px !important;
+	background: $anchor-color;
+	color: $blank-color !important;
+	border: 1px solid darken($anchor-color, 20%) !important;
+
+	
+	
+	
+	&:hover {
+		background: lighten($anchor-color, 10%);
+		border-color: transparent !important;
+		text-decoration: none;
+	}
+	&:focus {
+		box-shadow: 0 0 0 3px lighten($anchor-color, 40%);
+		border-color: transparent !important;
+	}
 }

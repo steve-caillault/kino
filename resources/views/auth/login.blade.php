@@ -58,7 +58,7 @@
     </div>
 
     <div class="form-input form-input-submit">
-        <input type="submit" value="{{ __('form.auth.fields.submit') }}" />
+        <input class="button" type="submit" value="{{ __('form.auth.fields.submit') }}" />
     </div>
 </form>
 
