@@ -35,7 +35,7 @@ Route::group([
     });
    
     Route::group([
-        'middleware' => [ 'auth', 'admin', ],
+        'middleware' => [ 'auth:admin', 'admin', ],
     ], function() {
         Route::get('', 'HomeController@index')->name('admin.index');
 

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Symfony\Component\Console\Exception\RuntimeException;
 /***/
 use Tests\TestCase;
-use App\Models\User;
+use App\Models\AdminUser;
 
 final class CreateUserCommandTest extends TestCase
 {
@@ -25,7 +25,7 @@ final class CreateUserCommandTest extends TestCase
         parent::setUp();
 
         // Création d'un compte utilisateur
-        $userAdmin = User::factory()->create([
+        $userAdmin = AdminUser::factory()->create([
             'nickname' => 'kino-admin',
             'email' => 'admin@kino.me',
             'permissions' => [ 'ADMIN' ],
@@ -35,11 +35,11 @@ final class CreateUserCommandTest extends TestCase
 
     /**
      * Retourne le dernier utilisateur créé
-     * @return ?User
+     * @return ?AdminUser
      */
-    private function getLastCreatedUser() : ?User
+    private function getLastCreatedUser() : ?AdminUser
     {
-        return User::orderBy('id', 'desc')->first();
+        return AdminUser::orderBy('id', 'desc')->first();
     }
 
     /**

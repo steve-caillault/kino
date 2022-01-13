@@ -7,7 +7,7 @@
 namespace Tests\Admin;
 
 use Tests\TestCase;
-use App\Models\User;
+use App\Models\AdminUser;
 
 final class LogoutTest extends TestCase
 {
@@ -22,7 +22,7 @@ final class LogoutTest extends TestCase
         parent::setUp();
 
         // Création d'un administrateur
-        User::factory()->create([
+        AdminUser::factory()->create([
             'nickname' => 'admin-user',
             'password' => 'admin-user-password',
             'permissions' => [ 'ADMIN', ],
@@ -35,9 +35,9 @@ final class LogoutTest extends TestCase
      */
     public function testIsLogged() : void
     {
-        $user = User::where('nickname', 'admin-user')->first();
+        $user = AdminUser::where('nickname', 'admin-user')->first();
 
-        $this->actingAs($user)
+        $this->actingAs($user, 'admin')
             ->followingRedirects()
             ->get('admin')
         ;
@@ -51,9 +51,9 @@ final class LogoutTest extends TestCase
      */
     public function testLogout() : void
     {
-        $user = User::where('nickname', 'admin-user')->first();
+        $user = AdminUser::where('nickname', 'admin-user')->first();
 
-        $this->actingAs($user)
+        $this->actingAs($user, 'admin')
                 ->followingRedirects()
                 ->get('admin/auth/logout')
         ;

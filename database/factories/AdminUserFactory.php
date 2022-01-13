@@ -3,12 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Hash;
-/***/
-use App\Models\User;
 
-class UserFactory extends Factory
+final class AdminUserFactory extends Factory
 {
     /**
      * Define the model's default state.

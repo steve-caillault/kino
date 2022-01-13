@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Factories\Sequence;
 use Symfony\Component\DomCrawler\Crawler;
 /***/
 use Tests\TestCase;
-use App\Models\User;
+use App\Models\AdminUser;
 
 final class EditTest extends TestCase
 {
@@ -28,7 +28,7 @@ final class EditTest extends TestCase
         $faker = $this->getFaker();
 
         // Création des utilisateurs
-        User::factory()->state(new Sequence(
+        AdminUser::factory()->state(new Sequence(
             [
                 'nickname' => 'admin-user',
                 'password' => 'admin-user-password',
@@ -58,10 +58,10 @@ final class EditTest extends TestCase
     {
         $formParams['form_name'] = 'admin-user-settings';
 
-        $user = User::where('nickname', '=', $originalNickname)->first();
+        $user = AdminUser::where('nickname', '=', $originalNickname)->first();
         $userBeforeCalling = clone $user;
 
-        $response = $this->actingAs($user)
+        $response = $this->actingAs($user, 'admin')
             ->followingRedirects()
             ->from('admin/user')
             ->post('admin/user', $formParams)
@@ -76,7 +76,7 @@ final class EditTest extends TestCase
         $this->assertEquals($expectedMessage, $flashMessage);
 
         // Vérification des données
-        $userAfterCalling = User::where('id', '=', $userBeforeCalling->id)->first();
+        $userAfterCalling = AdminUser::where('id', '=', $userBeforeCalling->id)->first();
         $expectedData = [
             'nickname' => $formParams['nickname'] ?? $userBeforeCalling->nickname,
             'email' => $formParams['email'] ?? $userBeforeCalling->email,
@@ -163,10 +163,10 @@ final class EditTest extends TestCase
     {
         $formParams['form_name'] = 'admin-user-settings';
 
-        $user = User::where('nickname', '=', $originalNickname)->first();
+        $user = AdminUser::where('nickname', '=', $originalNickname)->first();
         $userBeforeCalling = clone $user;
 
-        $response = $this->actingAs($user)
+        $response = $this->actingAs($user, 'admin')
             ->followingRedirects()
             ->from('admin/user')
             ->post('admin/user', $formParams)
@@ -189,7 +189,7 @@ final class EditTest extends TestCase
         }
 
         // On vérifie que les données n'ont pas été modifié
-        $userAfterCalling = User::where('id', '=', $userBeforeCalling->id)->first();
+        $userAfterCalling = AdminUser::where('id', '=', $userBeforeCalling->id)->first();
         $this->assertEquals($userBeforeCalling, $userAfterCalling);
     }
 

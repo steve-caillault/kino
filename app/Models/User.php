@@ -7,16 +7,23 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Casts\AsArrayObject;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Database\Eloquent\Casts\AsArrayObject;
 
 /**
  * @property string $password Mot de passe crypté
  */
-final class User extends Authenticatable
+class User extends Authenticatable
 {
     use HasFactory;
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'users';
 
     /**
      * Indicates if the model should be timestamped.
@@ -97,4 +104,5 @@ final class User extends Authenticatable
     {
         return $this->permissions->collect()->contains(Permission::ADMIN->name);
     }
+
 }

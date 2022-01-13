@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\Sequence;
 use Symfony\Component\DomCrawler\Crawler;
 /***/
 use Tests\TestCase;
-use App\Models\User;
+use App\Models\AdminUser;
 
 final class LoginTest extends TestCase
 {
@@ -25,7 +25,7 @@ final class LoginTest extends TestCase
         parent::setUp();
 
         // Création des utilisateurs
-        User::factory()->state(new Sequence(
+        AdminUser::factory()->state(new Sequence(
             [
                 'nickname' => 'admin-user',
                 'password' => 'admin-user-password',
