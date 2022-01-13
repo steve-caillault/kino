@@ -5,5 +5,5 @@
 @endsection
 
 @section('content')
-@todo Admin Login
+<p>{{ __('message.admin.home') }}</p>
 @endsection

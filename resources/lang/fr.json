@@ -31,6 +31,8 @@
 
     "anchor.user.edit.alt_label": "Modifier les paramètres de votre compte.",
     "button.logout.label": "Se déconnecter",
-    "button.logout.alt_label": "Se déconnecter du site."
+    "button.logout.alt_label": "Se déconnecter du site.",
 
+
+    "message.admin.home": "Choisissez un lien dans le menu"
 }
