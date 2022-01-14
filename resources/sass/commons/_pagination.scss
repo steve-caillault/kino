@@ -1,0 +1,30 @@
+ul.pagination {
+	@include marginBottomBetweenContent;
+    display: flex;
+	li {
+		margin: 0 0.25rem;
+		span, a {
+			border: 1px solid darken($anchor-color, 20%);
+			display: inline-block;
+			font-size: 1.4rem;
+			padding: 4px 8px;
+		}
+	
+		span {
+			background: $anchor-color; 
+			color: $blank-color;	
+            border-color: transparent;
+		}	
+		a:hover {
+			text-decoration: none;
+			background: lighten($anchor-color, 10%);
+			color: $blank-color;
+            border-color: transparent;
+		} 
+
+        a:focus {
+            box-shadow: 0 0 0 3px lighten($anchor-color, 40%);
+            border-color: transparent;
+        }
+	}
+}
