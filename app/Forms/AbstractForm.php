@@ -211,6 +211,17 @@ abstract class AbstractForm
 	}
 
 	/**
+	 * Retourne la valeur du champs en paramètre
+	 * @param string $fieldName
+	 * @param ?mixed $default Valeur par défaut à retourner
+	 * @return mixed
+	 */
+	public function getInputValue(string $fieldName, mixed $default = null) : mixed
+	{
+		return Arr::get($this->data, $fieldName, $default);
+	}
+
+	/**
 	 * Modifie les données du formulaire
 	 * @return array 
 	 */
