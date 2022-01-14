@@ -6,9 +6,9 @@
 
 namespace App\Forms\Admin\User;
 
-use App\Forms\FormRender;
+use App\Forms\DefaultFormRender;
 
-final class UserFormRender extends FormRender {
+final class UserFormRender extends DefaultFormRender {
 
     /**
 	 * Retourne les labels par nom de champs
