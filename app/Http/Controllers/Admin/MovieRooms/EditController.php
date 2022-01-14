@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Edition d'une salle de ciné
+ * Edition d'une salle de cinéma
  */
 
 namespace App\Http\Controllers\Admin\MovieRooms;

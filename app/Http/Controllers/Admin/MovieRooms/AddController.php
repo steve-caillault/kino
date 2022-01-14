@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Ajout d'une salle de ciné
+ * Ajout d'une salle de cinéma
  */
 
 namespace App\Http\Controllers\Admin\MovieRooms;

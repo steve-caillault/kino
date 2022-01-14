@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Salle de
+ * Salle de cinéma
  */
 
 namespace App\Models;

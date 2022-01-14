@@ -81,9 +81,9 @@ class User extends Authenticatable
      * @param array $permissions
      * @return self
      */
-    public function setPermissionsAttribute(array $permssions) : self
+    public function setPermissionsAttribute(array $permissions) : self
     {
-        $this->attributes['permissions'] = json_encode(array_map('strtoupper', $permssions));
+        $this->attributes['permissions'] = json_encode(array_map('strtoupper', $permissions));
         return $this;
     }
 
