@@ -7,6 +7,15 @@
 	
 }
 
+@mixin marginLateral() {
+	margin-left: 10px;
+	margin-right: 10px;
+	@include tablet {
+		margin-left: 20px;
+		margin-right: 20px;	
+	}
+}
+
 @mixin scrollBehavior($value) {
 	@if($value == smooth) {
 		&:not(.without-scroll-behavior) {

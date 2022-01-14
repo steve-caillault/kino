@@ -56,6 +56,6 @@ h1 {
 }
 
 main {
-	margin: 0 10px;
+	@include marginLateral;
 	@include marginBottomBetweenContent;
 }

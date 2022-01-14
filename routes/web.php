@@ -48,7 +48,7 @@ Route::group([
         Route::group([
             'prefix' => 'movie-rooms',
             'namespace' => 'MovieRooms',
-            'as' => 'movie-rooms.'
+            'as' => 'movie_rooms.'
         ], function() {
             // Liste des salles
             Route::get('', 'ListController@index')->name('list');
@@ -56,7 +56,7 @@ Route::group([
             Route::match([ 'get', 'post' ], 'add', 'AddController@index')->name('add');
             // Edition d'une salle
             Route::match([ 'get', 'post' ], '{movieRoomPublicId}/edit', 'EditController@index')
-                ->name('add')
+                ->name('edit')
                 ->where('movieRoomPublicId', '[^\/]+');
         });
     });

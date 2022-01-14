@@ -10,8 +10,14 @@
     <a href="{{ route('admin.auth.logout') }}" title="@lang('button.logout.alt_label')">@lang('button.logout.label')</a>
 </nav>
 <nav class="modules">
-    <a href="{{ route('admin.movie-rooms.list') }}" title="@lang('menu.movie-rooms.list.alt_label')">
-        @lang('menu.movie-rooms.list.label')
+    <a 
+        href="{{ route('admin.movie_rooms.list') }}" 
+        title="@lang('menu.movie_rooms.list.alt_label')"
+        @class([
+            'selected' => str_contains(url()->current(), '/movie-rooms')
+        ])
+    >
+        @lang('menu.movie_rooms.list.label')
     </a>
 </nav>
 @endsection

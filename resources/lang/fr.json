@@ -2,10 +2,14 @@
     "meta.title.login": "Connexion au site Kino",
     "meta.title.admin.home": "Panneau d'administration du site Kino",
     "meta.title.admin.user": "Gestion des paramètres de :user",
+    "meta.title.admin.movie_rooms.list": "Liste des salles de cinéma",
+    "meta.title.admin.movie_rooms.add": "Ajout d'une salle de cinéma",
 
     "title.default": "Kino, réservation de places de cinéma",
     "title.login": "Connexion au site Kino",
     "title.admin.user": "Gestion des paramètres de votre compte Kino",
+    "title.admin.movie_rooms.list": "Salles de cinéma",
+    "title.admin.movie_rooms.add": "Ajout d'une salle de cinéma",
     
     "form.submit.label": "Enregistrer",
     "form.invalidated": "Il y a des valeurs incorrectes dans le formulaire.",
@@ -23,6 +27,14 @@
     "form.user.fields.new_password": "Nouveau mot de passe",
     "form.user.fields.new_password_confirmation": "Confirmation du mot de passe",
 
+    "form.movie_room.fields.public_id": "Identifiant public",
+    "form.movie_room.fields.name": "Nom de la salle",
+    "form.movie_room.fields.floor": "Étage",
+    "form.movie_room.fields.nb_places": "Nombre total de places",
+    "form.movie_room.fields.nb_handicap_places": "Nombre de places adaptées à un handicap",
+    "form.movie_room.add.success": "La salle :name a été créée.",
+    "form.movie_room.add.failure": "Une erreur s'est produite lors de la création de la salle :name.",
+
     "form.error.select.no_option": "Aucune option pour le champs :name.",
 
     
@@ -34,10 +46,21 @@
     "button.logout.alt_label": "Se déconnecter du site.",
 
 
-    "menu.movie-rooms.list.label": "Salles de cinéma",
-    "menu.movie-rooms.list.alt_label": "Gestion de la liste des salles de cinéma.",
-    "menu.movie-rooms.add.label": "Ajouter une salle",
-    "menu.movie-rooms.add.alt_label": "Ajouter une salle de cinéma.",
+    "menu.movie_rooms.list.label": "Salles de cinéma",
+    "menu.movie_rooms.list.alt_label": "Gestion de la liste des salles de cinéma.",
+    "menu.movie_rooms.add.label": "Ajouter une salle",
+    "menu.movie_rooms.add.alt_label": "Ajouter une salle de cinéma.",
 
-    "message.admin.home": "Choisissez un lien dans le menu."
+    "message.admin.home": "Choisissez un lien dans le menu.",
+
+    "message.admin.movie_rooms.list.empty": "Aucune salle de cinéma n'a été trouvé.",
+
+    "message.admin.movie_rooms.list.fields.floor": "Étage :",
+    "message.admin.movie_rooms.list.fields.nb_places": "Nombre total de places :",
+    "message.admin.movie_rooms.list.fields.nb_handicap_places": "Nombre de places adaptées à un handicap :",
+
+    "button.admin.movie_rooms.add.label": "Ajouter une salle",
+    "button.admin.movie_rooms.add.alt_label": "Ajouter une nouvelle salle de cinéma.",
+    "button.admin.movie_rooms.edit.label": "Gérer la salle",
+    "button.admin.movie_rooms.edit.alt_label": "Gérer la salle ':name'."
 }

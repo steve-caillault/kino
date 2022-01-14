@@ -1,0 +1,20 @@
+section.movie-rooms {
+    &:first-of-type {
+        border-top: 1px solid $border-color-block;  
+    }
+    &:last-of-type {
+        @include marginBottomBetweenContent;
+    }
+    border-bottom: 1px solid $border-color-block;
+    h2 {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+    }
+    ul {
+        margin-bottom: 1rem;
+        li {
+            font-size: 1.4rem;
+        }
+    }
+    padding: 1rem 0;
+}
