@@ -1,5 +1,7 @@
 {
     "meta.title.login": "Connexion au site Kino",
+    "meta.title.forgot_password": "Demande de réinitialisation de mot de passe",
+    "meta.title.reset_password": "Réinitialisation de votre mot de passe",
     "meta.title.admin.home": "Panneau d'administration du site Kino",
     "meta.title.admin.user": "Gestion des paramètres de :user",
     "meta.title.admin.movie_rooms.list": "Liste des salles de cinéma",
@@ -8,17 +10,39 @@
 
     "title.default": "Kino, réservation de places de cinéma",
     "title.login": "Connexion au site Kino",
+    "title.forgot_password": "Demande de réinitialisation de mot de passe",
+    "title.reset_password": "Réinitialisation de votre mot de passe",
     "title.admin.user": "Gestion des paramètres de votre compte Kino",
     "title.admin.movie_rooms.list": "Salles de cinéma",
     "title.admin.movie_rooms.add": "Ajout d'une salle de cinéma",
     "title.admin.movie_rooms.edit": "Édition de salle de cinéma ':name'",
+
+    "notification.signing": "Kino",
+    "notification.reset_password.subject": "Réinitialisation du mot de passe de votre compte Kino",
+    "notification.reset_password.title": "Bonjour :name,",
+    "notification.reset_password.message": "Vous avez demandé à réinitialiser votre mot de passe sur le site Kino. Vous pouvez le faire ci-dessous :",
+    "notification.reset_password.anchor.label": "Réinitialiser le mot de passe",
+    "notification.reset_password.anchor.alt_label": "Se rendre sur le site Kino pour réinitialiser le mot de passe.",
     
     "form.submit.label": "Enregistrer",
     "form.invalidated": "Il y a des valeurs incorrectes dans le formulaire.",
+    "form.auth.forgot_password.label": "Mot de passe oublié",
+    "form.auth.forgot_password.alt_label": "Envoyer une demande de réinitialisation de mot de passe.",
     "form.auth.fields.nickname": "Nom d'utilisateur",
     "form.auth.fields.password": "Mot de passe",
     "form.auth.fields.remember": "Enregistrer",
     "form.auth.fields.submit": "Se connecter",
+
+    "form.auth.forgot_password.login.label": "Se connecter",
+    "form.auth.forgot_password.login.alt_label": "Se connecter à votre compte.",
+    "form.auth.forgot_password.fields.email": "Adresse email de votre compte",
+    "form.auth.forgot_password.submit": "Envoyer la demande",
+
+    "form.auth.reset_password.fields.email": "Adresse email de votre compte",
+    "form.auth.reset_password.fields.password": "Nouveau mot de passe",
+    "form.auth.reset_password.fields.password_confirmation": "Confirmation du mot de passe",
+    "form.auth.reset_password.submit": "Réinitialiser le mot de passe",
+
     "form.user.success": "Votre compte a été mis à jour.",
     "form.user.failure": "Une erreur s'est produite lors de la mise à jour de votre compte.",
 

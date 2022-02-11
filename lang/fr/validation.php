@@ -1,6 +1,9 @@
 <?php
 
 return [
+
+    'exists' => 'La valeur :attribute est incorrecte.',
+
     'custom' => [
         'nickname' => [
             'required' => 'Le nom d\'utilisateur est nécessaire.',
@@ -32,6 +35,10 @@ return [
         ],
         'password' => [
             'required' => 'Le mot de passe est nécessaire.',
+            'min' => 'Le mot de passe doit avoir au moins :min caractères.',
+            'max' => 'Le mot de passe doit avoir au plus :max caractères.',
+            'confirmed' => 'Les deux mots de passe doivent être identiques.',
+
         ],
 
         'public_id' => [

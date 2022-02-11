@@ -34,6 +34,28 @@ Route::group([
         Route::get('login', 'LoginController@showLoginForm')->name('login');
         Route::post('login', 'LoginController@login');
         Route::get('logout', 'LoginController@logout')->name('logout');
+
+        Route::group([
+            'prefix' => 'forgot-password',
+            'middleware' => [ 'guest:admin', ],
+            'as' => 'forgot_password.',
+        ], function() {
+            // Formulaire de demande de réinitialisation de mot de passe
+            Route::get('', 'ForgotPasswordController@showLinkRequestForm')->name('request');
+            // Traitement de la demande de réinitialisation de mot de passe
+            Route::post('', 'ForgotPasswordController@sendResetLinkEmail');
+        });
+
+        Route::group([
+            'prefix' => 'reset-password/{token}',
+            'as' => 'reset_password.',
+        ], function() {
+            // Formulaire de réinitialisation du mot de passe
+            Route::get('', 'ResetPasswordController@showResetForm')->name('index');
+            // réinitialisation du mot de passe
+            Route::post('', 'ResetPasswordController@reset');
+        });
+
     });
    
     Route::group([

@@ -14,9 +14,21 @@ final class LoginController extends AbstractLoginController
     }
 
     /**
+     * Show the application's login form.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showLoginForm() : \Illuminate\View\View
+    {
+        return view('auth.login', [
+            'forgotPasswordUri' => route('admin.auth.forgot_password.request'),
+        ]);
+    }
+
+    /**
      * Get the guard to be used during authentication.
      *
-     * @return \Illuminate\Contracts\Auth\StatefulGuard
+     * @return \Illuminate\Contracts\Auth\Guard
      */
     protected function guard()
     {

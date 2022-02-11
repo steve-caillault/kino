@@ -37,7 +37,7 @@
         'form-input',
         'form-input-error' => $errors->has('password'),
     ])>
-        <label for="password">{{ __('form.auth.fields.password') }}</label>
+        <label for="password">@lang('form.auth.fields.password')</label>
 
         <input 
             id="password"
@@ -51,6 +51,13 @@
          <p class="error">{{ $message }}</p>
         @enderror
     </div>
+
+    <p>
+        <a 
+            href="{{ $forgotPasswordUri }}" 
+            title="@lang('form.auth.forgot_password.alt_label')"
+        >@lang('form.auth.forgot_password.label')</a>
+    </p>
 
     <div class="form-input">
         <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} />

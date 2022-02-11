@@ -6,17 +6,24 @@
 
 namespace App\Models;
 
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Casts\AsArrayObject;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\{
+    Hash,
+    Mail
+};
+use Illuminate\Contracts\Auth\CanResetPassword;
+/***/
+use App\Mail\ResetPasswordMail;
 
 /**
  * @property string $password Mot de passe crypté
  */
-class User extends Authenticatable
+class User extends Authenticatable implements CanResetPassword
 {
-    use HasFactory;
+    use HasFactory, Notifiable;
 
     /**
      * The table associated with the model.
@@ -64,6 +71,54 @@ class User extends Authenticatable
     protected $casts = [
         'permissions' => AsArrayObject::class,
     ];
+
+    /**
+     * Get the e-mail address where password reset links are sent.
+     *
+     * @return string
+     */
+    public function getEmailForPasswordReset() : string
+    {
+        return $this->email;
+    }
+
+    /**
+     * Retourne l'URI de réinitialisation de mot de passe
+     * @param string $token
+     * @return string
+     */
+    public function getResetPasswordUri(string $token) : string
+    {
+        return ''; // A surcharger dans les classes filles
+    }
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification(/*string*/ $token) /*: void*/
+    {
+        $mail = new ResetPasswordMail(
+            user: $this, 
+            token: $token
+        );
+
+        Mail::mailer()->send($mail);
+    }
+
+    /**
+     * Retourne le nom complet
+     * @return string
+     */
+    public function getFullNameAttribute() : string
+    {
+        return trim(implode(' ', [
+            $this->first_name,
+            $this->last_name,
+        ])) ?: $this->nickname;
+    }
 
     /**
      * Modification du mot de passe

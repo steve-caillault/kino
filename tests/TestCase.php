@@ -70,4 +70,32 @@ abstract class TestCase extends BaseTestCase
             DB::statement('SET foreign_key_checks=1');
         }
     }
+
+    /**
+     * Assert that a given where condition exists in the database.
+     * On étend la méthode de Laravel pour pouvoir préciser l'opérateur dans $data
+     *
+     * @param  \Illuminate\Database\Eloquent\Model|string  $table
+     * @param  array  $data
+     * @param  string|null  $connection
+     * @return $this
+     */
+    protected function assertDatabaseHas($table, array $data, $connection = null) : self
+    {
+        $query = $this->app->make('db')->connection($connection)->table($table);
+        
+        foreach($data as $rule)
+        {
+            list($left, $operator, $right) = $rule;
+            $query->where($left, $operator, $right);
+        }
+        
+        $count = $query->count();
+
+        $this->assertGreaterThan(0, $count, sprintf(
+            'Unable to find row in database table [%s] that matched attributes [%s].', $table, json_encode($data)
+        ));
+
+        return $this;
+    }
 }
