@@ -5,6 +5,10 @@ return [
     'exists' => 'La valeur :attribute est incorrecte.',
 
     'custom' => [
+        'token' => [
+            'required' => 'Le jeton est manquant.',
+        ],
+
         'nickname' => [
             'required' => 'Le nom d\'utilisateur est nécessaire.',
             'min' => 'Le nom d\'utilisateur doit avoir au moins :min caractères.',

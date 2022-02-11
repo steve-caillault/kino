@@ -239,7 +239,7 @@ abstract class AbstractForm
 				continue;
 			}
 			
-			$value = (is_string($value)) ? trim(strip_tags($value)) : $value;
+			$value = (is_string($value) and $this->fieldMustBeStripTagged($key)) ? trim(strip_tags($value)) : $value;
 
 			$inputType = Arr::get($inputTypesByNames, $key);
 			
@@ -253,6 +253,16 @@ abstract class AbstractForm
 		}
 		
 		return $this->data;
+	}
+
+	/**
+	 * Retourne si le nom du champs en paramètre doit être exclu du filtre strip_tags
+	 * @param string $fieldName
+	 * @return bool
+	 */
+	protected function fieldMustBeStripTagged(string $fieldName) : bool
+	{
+		return true;
 	}
 	
 	/**

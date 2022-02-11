@@ -12,6 +12,7 @@
     "title.login": "Connexion au site Kino",
     "title.forgot_password": "Demande de réinitialisation de mot de passe",
     "title.reset_password": "Réinitialisation de votre mot de passe",
+    "title.admin.home": "Panneau d'administration du site Kino",
     "title.admin.user": "Gestion des paramètres de votre compte Kino",
     "title.admin.movie_rooms.list": "Salles de cinéma",
     "title.admin.movie_rooms.add": "Ajout d'une salle de cinéma",

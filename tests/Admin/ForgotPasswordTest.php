@@ -32,6 +32,7 @@ final class ForgotPasswordTest extends TestCase
         // Création des utilisateurs
         AdminUser::factory()->create([
             'nickname' => 'admin-user',
+            'email' => 'admin-user@kino.me',
             'password' => 'admin-user-password',
             'permissions' => [ 'ADMIN', ],
         ]);

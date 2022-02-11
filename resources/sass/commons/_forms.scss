@@ -6,6 +6,10 @@ form {
   	@include marginBottomBetweenContent;
   
     max-width: 100%;
+
+    p.error {
+        color: $error-color;
+    }
     
     div.form-input {
         clear: both;
@@ -85,7 +89,6 @@ form {
 			margin: 5px 5px 5px 0;
         }
         p.error {
-            color: $error-color;
             margin: 5px 0 0;
         }
     

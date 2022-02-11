@@ -56,6 +56,18 @@ final class UserForm extends AbstractForm {
     }
 
     /**
+	 * Retourne si le nom du champs en paramètre doit être exclu du filtre strip_tags
+	 * @param string $fieldName
+	 * @return bool
+	 */
+	protected function fieldMustBeStripTagged(string $fieldName) : bool
+	{
+		return ! in_array($fieldName, [
+            'new_password', 'new_password_confirmation',
+        ]);
+	}
+
+    /**
 	 * Retourne un tableau associant pour chaque nom, le type de champs
 	 * @return array
 	 */

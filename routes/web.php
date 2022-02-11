@@ -48,6 +48,7 @@ Route::group([
 
         Route::group([
             'prefix' => 'reset-password/{token}',
+            'middleware' => [ 'guest:admin', ],
             'as' => 'reset_password.',
         ], function() {
             // Formulaire de réinitialisation du mot de passe
