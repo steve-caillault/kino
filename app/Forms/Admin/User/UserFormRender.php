@@ -27,6 +27,30 @@ final class UserFormRender extends DefaultFormRender {
         ];
 	}
 
+    /**
+	 * Retourne les paramètres du label dont le nom est en paramètre
+	 * @param string $name
+	 * @return array
+	 */
+	protected function getLabelAttributesOfInput(string $name) : array
+	{
+        
+        $attributes = parent::getLabelAttributesOfInput($name);
 
+        $currentData = $this->getInputsData();
+        $newPassword = $currentData['new_password'] ?? null;
+
+        // Les champs de mot de passe ne sont requis que si un nouveau mot de passe est définie
+        $passwordFields = [ 'current_password', 'new_password', 'new_password_confirmation', ];
+        if(in_array($name, $passwordFields) and $newPassword === null)
+        {
+            $attributes['class'] ??= null;
+            $attributes['class'] = strtr($attributes['class'], [
+                'required' => '',
+            ]);
+        }
+
+        return $attributes;
+    }
 
 }

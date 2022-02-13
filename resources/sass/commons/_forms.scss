@@ -26,6 +26,10 @@ form {
             display: inline-block;  
             cursor: pointer;
             vertical-align: middle;
+
+            &.required {
+                font-weight: bold;
+            }
         }
         input, textarea, select {
             padding: 5px;

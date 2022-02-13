@@ -135,7 +135,8 @@ abstract class AbstractForm
 	}
 
 	/**
-	 * 
+	 * Affecte les erreurs du formulaire
+	 * @return array
 	 */
 	private function fillErrorsWithValidatorErrors() : void
 	{
@@ -200,6 +201,15 @@ abstract class AbstractForm
 	 * @return array
 	 */
 	abstract public function getInputTypesByNames() : array;
+
+	/**
+	 * Retourne la liste des champs requis
+	 * @return array
+	 */
+	public function getRequiredInputNames() : array
+	{
+		return array_keys($this->getInputTypesByNames());
+	}
 	
 	/**
 	 * Retourne les données du formulaire

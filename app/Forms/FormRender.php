@@ -116,7 +116,15 @@ abstract class FormRender {
 	 */
 	protected function getLabelAttributesOfInput(string $name) : array
 	{
-		return []; // A gérer dans les classes filles
+		$attributes = [];
+		$requiredFieldNames = $this->form->getRequiredInputNames();
+
+		if(in_array($name, $requiredFieldNames))
+		{
+			$attributes['class'] = 'required';
+		}
+
+		return $attributes;
 	}
 
 	/**
@@ -154,6 +162,15 @@ abstract class FormRender {
 		}
 		
 		return $labels;
+	}
+
+	/**
+	 * Retourne les données des champs
+	 * @return array
+	 */
+	protected function getInputsData() : array
+	{
+		return $this->form->getInputsData();
 	}
 
 	/**
