@@ -51,6 +51,7 @@
     "form.user.fields.email": "Adresse email",
     "form.user.fields.first_name": "Prénom",
     "form.user.fields.last_name": "Nom",
+    "form.user.fields.current_password": "Mot de passe actuel",
     "form.user.fields.new_password": "Nouveau mot de passe",
     "form.user.fields.new_password_confirmation": "Confirmation du mot de passe",
 

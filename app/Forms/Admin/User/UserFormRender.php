@@ -21,6 +21,7 @@ final class UserFormRender extends DefaultFormRender {
             'email' => trans('form.user.fields.email'),
             'first_name' => trans('form.user.fields.first_name'),
             'last_name' => trans('form.user.fields.last_name'),
+            'current_password' => trans('form.user.fields.current_password'),
             'new_password' => trans('form.user.fields.new_password'),
             'new_password_confirmation' => trans('form.user.fields.new_password_confirmation'),
         ];

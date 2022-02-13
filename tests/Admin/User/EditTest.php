@@ -133,6 +133,7 @@ final class EditTest extends TestCase
             // Modification du mot de passe
             'change-password' => [
                 [
+                    'current_password' => 'admin-user-with-name-password',
                     'new_password' => 'tartelette',
                     'new_password_confirmation' => 'tartelette',
                 ], 'admin-user-with-name', 'tartelette',
@@ -144,6 +145,7 @@ final class EditTest extends TestCase
                     'email' => 'admin-user-1@kino.me',
                     'first_name' => 'Pomme',
                     'last_name' => 'Poire',
+                    'current_password' => 'admin-user-password',
                     'new_password' => 'petite tartelette',
                     'new_password_confirmation' => 'petite tartelette',
                 ], 'admin-user', 'petite tartelette',
@@ -201,6 +203,7 @@ final class EditTest extends TestCase
     {
         $faker = $this->getFaker();
 
+        $normalPassword = $faker->password(10);
         $longPassword = $faker->realTextBetween();
 
         return [
@@ -316,11 +319,55 @@ final class EditTest extends TestCase
                 ], 'admin-user-with-name',
             ],
 
+            // Mot de passe courant requis
+            'current-password-required' => [
+                [
+                    'new_password' => $normalPassword,
+                    'new_password_confirmation' => $normalPassword,
+                ], [
+                    'current_password' => 'Votre mot de passe actuel est requis.',
+                ], 'admin-user-with-name',
+            ],
+
+             // Mot de passe courant vide
+             'current-password-empty' => [
+                [
+                    'current_password' => '',
+                    'new_password' => $normalPassword,
+                    'new_password_confirmation' => $normalPassword,
+                ], [
+                    'current_password' => 'Votre mot de passe actuel est requis.',
+                ], 'admin-user-with-name',
+            ],
+
+            // Mot de passe courant incorrect
+            'current-password-incorrect' => [
+                [
+                    'current_password' => 'piment-de-cayenne',
+                    'new_password' => $normalPassword,
+                    'new_password_confirmation' => $normalPassword,
+                ], [
+                    'current_password' => 'Le mot de passe est incorrect.',
+                ], 'admin-user-with-name',
+            ],
+
+            // Mots de passe courant et nouveau identiques
+            'same-passwords' => [
+                [
+                    'current_password' => 'admin-user-with-name-password',
+                    'new_password' => 'admin-user-with-name-password',
+                    'new_password_confirmation' => 'admin-user-with-name-password',
+                ], [
+                    'new_password' => 'Votre nouveau mot de passe doit être diffèrent de l\'actuel.',
+                ], 'admin-user-with-name',
+            ],
+
             // Nouveau mot de passe trop court
             'password-too-short' => [
                 [
+                    'current_password' => 'admin-user-with-name-password',
                     'new_password' => 'pom',
-                    'new_password_confirmation',
+                    'new_password_confirmation' => 'pom',
                 ], [
                     'new_password' => 'Le mot de passe doit avoir au moins 8 caractères.',
                 ], 'admin-user-with-name',
@@ -329,6 +376,7 @@ final class EditTest extends TestCase
             // Nouveau mot de passe trop long
             'password-too-long' => [
                 [
+                    'current_password' => 'admin-user-with-name-password',
                     'new_password' => $longPassword,
                     'new_password_confirmation' => $longPassword,
                 ], [
@@ -339,6 +387,7 @@ final class EditTest extends TestCase
             // Confirmation du mot de passe vide
             'password-confirmation-empty' => [
                 [
+                    'current_password' => 'admin-user-with-name-password',
                     'new_password' => $faker->password(8),
                     'new_password_confirmation' => '',
                 ], [
@@ -349,6 +398,7 @@ final class EditTest extends TestCase
             // Confirmation du mot de passe incorrect
             'password-confirmation-incorrect' => [
                 [
+                    'current_password' => 'admin-user-with-name-password',
                     'new_password' => $faker->password(8),
                     'new_password_confirmation' => $faker->password(8),
                 ], [

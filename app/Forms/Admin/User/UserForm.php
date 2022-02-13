@@ -78,6 +78,7 @@ final class UserForm extends AbstractForm {
             'email' => InputTypeEnum::EMAIL->name,
             'first_name' => InputTypeEnum::TEXT->name,
             'last_name' => InputTypeEnum::TEXT->name,
+            'current_password' => InputTypeEnum::PASSWORD->name,
             'new_password' => InputTypeEnum::PASSWORD->name,
             'new_password_confirmation' => InputTypeEnum::PASSWORD->name,
         ];
@@ -99,7 +100,8 @@ final class UserForm extends AbstractForm {
             'email' => [ 'bail', 'required', 'min:5', 'max:100', 'email', $uniqueEmailRule, ],
             'first_name' => [ 'bail', 'required', 'min:5', 'max:100', ],
             'last_name' => [ 'bail', 'required', 'min:5', 'max:100', ],
-            'new_password' => [ 'bail', 'nullable', 'string', 'min:8', 'max:100', 'confirmed', ],
+            'current_password' => [ 'bail', 'nullable', 'string', 'required_with:new_password', 'current_password:admin', ],
+            'new_password' => [ 'bail', 'nullable', 'string', 'min:8', 'max:100', 'confirmed', 'different:current_password', ],
         ]);
     }
 

@@ -32,19 +32,23 @@ return [
             'min' => 'Le nom doit avoir au moins :min caractères.',
             'max' => 'Le nom doit avoir au plus :max caractères.',
         ],
+        'current_password' => [
+            'required' => 'Votre mot de passe actuel est requis.',
+            'required_with' => 'Votre mot de passe actuel est requis.',
+            'current_password' => 'Le mot de passe est incorrect.',
+        ],
         'new_password' => [
             'min' => 'Le mot de passe doit avoir au moins :min caractères.',
             'max' => 'Le mot de passe doit avoir au plus :max caractères.',
             'confirmed' => 'Les deux mots de passe doivent être identiques.',
+            'different' => 'Votre nouveau mot de passe doit être diffèrent de l\'actuel.',
         ],
         'password' => [
             'required' => 'Le mot de passe est nécessaire.',
             'min' => 'Le mot de passe doit avoir au moins :min caractères.',
             'max' => 'Le mot de passe doit avoir au plus :max caractères.',
             'confirmed' => 'Les deux mots de passe doivent être identiques.',
-
         ],
-
         'public_id' => [
             'required' => 'L\'identifiant public est nécessaire.',
             'min' => 'L\'identifiant public doit avoir au moins :min caractères.',
