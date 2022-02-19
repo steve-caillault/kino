@@ -48,12 +48,14 @@ abstract class TestCase extends BaseTestCase
 
     /**
      * Tronque les tables de la base de données lors de l'exécution d'un grand nombre de tests
+     * @return void
      */
     private function cleanDatabases() : void
     {
         $modelClassesToTruncate = [
             \App\Models\AdminUser::class,
             \App\Models\MovieRoom::class,
+            \App\Models\Log::class,
         ];
 
         // On ne tronque pas les tables à chaque fois
