@@ -1,4 +1,9 @@
 {
+    "error.default": "Une erreur s'est produite.",
+    "error.authenticate": "Vous devez être identifié pour accéder à cette page.",
+    "error.forbidden": "Vous n'êtes pas autorisé à accéder à cette page.",
+    "error.not_found": "Cette page n'existe pas ou a été déplacée.",
+
     "meta.title.login": "Connexion au site Kino",
     "meta.title.forgot_password": "Demande de réinitialisation de mot de passe",
     "meta.title.reset_password": "Réinitialisation de votre mot de passe",
@@ -9,6 +14,7 @@
     "meta.title.admin.movie_rooms.edit": "Édition de salle de cinéma ':name'",
 
     "title.default": "Kino, réservation de places de cinéma",
+    "title.error": "Une erreur :code s'est produite",
     "title.login": "Connexion au site Kino",
     "title.forgot_password": "Demande de réinitialisation de mot de passe",
     "title.reset_password": "Réinitialisation de votre mot de passe",
@@ -67,10 +73,6 @@
     "form.movie_room.edit.failure": "Une erreur s'est produite lors de la modification de la salle ':name'.",
 
     "form.error.select.no_option": "Aucune option pour le champs :name.",
-
-    
-
-    "error.forbidden": "Vous n'êtes pas autorisé à accéder à cette page.",
 
     "menu.user.edit.alt_label": "Modifier les paramètres de votre compte.",
     "button.logout.label": "Se déconnecter",
