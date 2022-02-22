@@ -4,24 +4,18 @@
  * Tests d'enregistrement de log en base de données avec Monolog
  */
 
-namespace Tests\Command\Unit;
+namespace Tests\Unit;
 
 use Illuminate\Support\Facades\Log;
 /***/
-use Tests\TestCase;
-use App\Models\Log as LogModel;
+use Tests\{
+    TestCase,
+    WithDatabaseLogTrait
+};
 
 final class DatabaseLogTest extends TestCase
 {
-
-    /**
-     * Retourne le dernier log enregistré 
-     * @return ?LogModel
-     */
-    private function getLastDatabaseLog() : ?LogModel
-    {
-        return LogModel::orderBy('id', 'desc')->first();
-    }
+    use WithDatabaseLogTrait;
 
     /**
      * Création d'un utilisateur avec succès
@@ -33,31 +27,10 @@ final class DatabaseLogTest extends TestCase
     public function test(string $level, string $message) : void
     {
         $currentDate = (new \DateTimeImmutable());
-        // Modifie l'heure à cause des microsecondes
-        $currentDate = $currentDate->setTime(
-            (int) $currentDate->format('G'), 
-            (int) $currentDate->format('i'),
-            (int) $currentDate->format('s'),
-            0
-        );
 
         with(Log::channel('database'))->{ $level }($message);
 
-        // Création du log
-        $lastLog = $this->getLastDatabaseLog();
-        $lastLogDate = ($lastLog !== null) ? new \DateTimeImmutable($lastLog->created_at) : null;
-
-        // Vérification de la date
-        $this->assertTrue($lastLogDate >= $currentDate);
-
-        // Vérification du niveau et du message
-        $this->assertEquals([
-            'level' => strtoupper($level),
-            'message' => $message,
-        ], [
-            'level' => $lastLog->level,
-            'message' => $lastLog->message,
-        ]);
+        $this->checkLogAfter(strtoupper($level), $message, $currentDate);
     }
 
     /**
