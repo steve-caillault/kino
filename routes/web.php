@@ -74,11 +74,11 @@ Route::group([
         // Gestion des salles de cinéma
         Route::group([
             'prefix' => 'movie-rooms',
-            'namespace' => 'MovieRooms',
+            // 'namespace' => 'MovieRooms',
             'as' => 'movie_rooms.'
         ], function() {
             // Liste des salles
-            Route::get('', 'ListController@index')->name('list');
+            Route::get('', 'MovieRoomController@index')->name('list');
             // Ajout d'une salle
             Route::match([ 'get', 'post' ], 'add', 'AddController@index')->name('add');
             // Edition d'une salle

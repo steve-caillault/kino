@@ -38,12 +38,14 @@
             </ul>
             <a 
                 class="button" 
-                href="{{ $room['editUrl'] }}" 
+                href="{{ route('admin.movie_rooms.edit', [
+                    'movieRoomPublicId' => $room['public_id'],
+                ]) }}"
                 title="@lang('button.admin.movie_rooms.edit.alt_label', [
                     'name' => $room['name']
                 ])"
             >
-                 @lang('button.admin.movie_rooms.edit.label')
+                @lang('button.admin.movie_rooms.edit.label')
             </a>
         </section>
         @endforeach

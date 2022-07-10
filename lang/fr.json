@@ -69,7 +69,7 @@
     "form.movie_room.add.success": "La salle ':name' a été créée.",
     "form.movie_room.add.failure": "Une erreur s'est produite lors de la création de la salle ':name'.",
 
-    "form.movie_room.edit.success": "La salle ':name' a été mis à jour.",
+    "form.movie_room.edit.success": "La salle ':name' a été mise à jour.",
     "form.movie_room.edit.failure": "Une erreur s'est produite lors de la modification de la salle ':name'.",
 
     "form.error.select.no_option": "Aucune option pour le champs :name.",
