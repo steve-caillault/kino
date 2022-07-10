@@ -64,8 +64,12 @@ Route::group([
     ], function() {
         Route::get('', 'HomeController@index')->name('index');
 
-        // Edition du compte
-        Route::match([ 'get', 'post', ], 'user', 'UserController@index')->name('user.index');
+        // Formulaire d'édition de compte
+        Route::get('user', 'UserController@showEditProfileForm')->name('user.index');
+        Route::post('user', 'UserController@updateProfile');
+
+        // Traitement de l'édition du compte
+       // Route::post('user', 'UserController@updateProfile');
 
         // Gestion des salles de cinéma
         Route::group([

@@ -19,6 +19,10 @@ use Illuminate\Contracts\Auth\CanResetPassword;
 use App\Mail\ResetPasswordMail;
 
 /**
+ * @property string $nickname
+ * @property string $email
+ * @property string $first_name
+ * @property string $last_name
  * @property string $password Mot de passe crypté
  */
 class User extends Authenticatable implements CanResetPassword

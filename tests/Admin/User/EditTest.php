@@ -56,8 +56,6 @@ final class EditTest extends TestCase
      */
     public function testSuccess(array $formParams, string $originalNickname, string $passwordExpected) : void
     {
-        $formParams['form_name'] = 'admin-user-settings';
-
         $user = AdminUser::where('nickname', '=', $originalNickname)->first();
         $userBeforeCalling = clone $user;
 

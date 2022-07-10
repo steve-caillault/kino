@@ -6,54 +6,76 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\{
-    Validator
+use Illuminate\Http\{
+    Request, 
+    RedirectResponse
 };
-use Illuminate\Http\Request;
 use Illuminate\Contracts\Support\Renderable;
 /***/
+use App\Http\Requests\User\UserEditProfileRequest;
 use App\Models\User;
-use App\Forms\Admin\User\{
-    UserForm,
-    UserFormRender
-};
 
 final class UserController extends AbstractController
 {
     /**
      * Gestion des paramètres du compte connecté
-     * @param Request
+     * @param Request $request
      * @return Renderable
      */
-    public function index(Request $request) : Renderable
+    public function showEditProfileForm(Request $request) : Renderable
     {
-        $formData = $request->post();
+        $user = $request->user();
 
-        $form = new UserForm($formData);
-        $form->setUser($request->user());
-        $form->process();
+        $formData = [
+            'nickname' => old('nickname', $user->nickname),
+            'email' => old('email', $user->email),
+            'firstName' => old('first_name', $user->first_name),
+            'lastName' => old('last_name', $user->last_name),
+        ];
 
-        $success = $form->getSuccess();
-        $errors = $form->getErrors();
-
-        // Messages flash
-        if(count($errors) > 0)
-        {
-            $request->session()->now('error', trans('form.invalidated'));
-        }
-        elseif($success !== null)
-        {
-            $messageFlashType = ($success) ? 'success' : 'error';
-            $messageFlash = ($success) ? 'form.user.success' : 'form.user.failure';
-            $request->session()->now($messageFlashType, trans($messageFlash));
-        }
-
-        $formRender = with(new UserFormRender($form))->render();
+        $form = view('admin.profile._edit_form', [
+            'data' => $formData,
+        ]);
 
         return view('admin.user', [
-            'form' => $formRender,
+            'form' => $form,
         ]);
+    }
+
+    /**
+     * Gestion de l'édition du profil de l'utilisateur
+     * @param UserEditProfileRequest $request
+     * @return RedirectResponse
+     */
+    public function updateProfile(UserEditProfileRequest $request) : RedirectResponse
+    {
+        $inputs = collect($request->validated());
+
+        /**
+         * @var User
+         */
+        $user = $request->user();
+
+        $user->fill([
+            'nickname' => $inputs->get('nickname'),
+            'first_name' => $inputs->get('first_name'),
+            'last_name' => $inputs->get('last_name'),
+            'email' => $inputs->get('email'),
+        ]);
+
+        $newPassword = $inputs->get('new_password');
+        if($newPassword !== null)
+        {
+            $user->password = $newPassword;
+        }
+
+        $success = $user->save();
+
+        $messageFlashType = ($success) ? 'success' : 'error';
+        $messageFlash = ($success) ? 'form.user.success' : 'form.user.failure';
+        $request->session()->flash($messageFlashType, trans($messageFlash));
+
+        return back();
     }
 
 }   
