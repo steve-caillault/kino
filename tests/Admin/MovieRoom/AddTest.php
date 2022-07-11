@@ -11,13 +11,22 @@ use App\Models\MovieRoom;
 final class AddTest extends AbstractMovieRoomTest
 {
 
-     /**
-     * Retourne l'URI de l'application à appeler
+    /**
+     * Retourne l'URI depuis laquelle la requête est appelé
      * @return string
      */
-    protected function getUri() : string
+    protected function getFromUri() : string
     {
-        return 'admin/movie-rooms/add';
+        return 'admin/movie-rooms/create';
+    }
+
+    /**
+     * Retourne l'URI du traitement du formulaire
+     * @return string
+     */
+    protected function getFormUri() : string
+    {
+        return 'admin/movie-rooms';
     }
 
     /**

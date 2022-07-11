@@ -47,10 +47,16 @@ abstract class AbstractMovieRoomTest extends TestCase
     }
 
     /**
-     * Retourne l'URI de l'application à appeler
+     * Retourne l'URI depuis laquelle la requête est appelé
      * @return string
      */
-    abstract protected function getUri() : string;
+    abstract protected function getFromUri() : string;
+
+    /**
+     * Retourne l'URI du traitement du formulaire
+     * @return string
+     */
+    abstract protected function getFormUri() : string;
 
     /**
      * Retourne le modèle à vérifier après l'appel
@@ -75,14 +81,10 @@ abstract class AbstractMovieRoomTest extends TestCase
      */
     private function getAttemptCallingResponse(array $formParams = []) : \Illuminate\Testing\TestResponse
     {
-        $formParams['form_name'] = 'admin-movie-room-edit';
-
-        $uri = $this->getUri();
-
         return $this->actingAs($this->user, 'admin')
             ->followingRedirects()
-            ->from($uri)
-            ->post($uri, $formParams)
+            ->from($this->getFromUri())
+            ->post($this->getFormUri(), $formParams)
             ->assertStatus(200);
     }
 
