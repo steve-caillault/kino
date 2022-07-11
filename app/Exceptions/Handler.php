@@ -149,6 +149,11 @@ final class Handler extends ExceptionHandler
      */
     protected function renderExceptionResponse(/*Request*/ $request, Throwable $exception) /*: Response*/
     {
+        if(app()->environment('local'))
+        {
+            return parent::renderExceptionResponse($request, $exception);
+        }
+
         $code = $this->getStatusCode($exception) ?: 500;
         $displayedMessage = $this->getDisplayedMessage($exception);
 
