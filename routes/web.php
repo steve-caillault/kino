@@ -68,23 +68,19 @@ Route::group([
         Route::get('user', 'UserController@showEditProfileForm')->name('user.index');
         Route::post('user', 'UserController@updateProfile');
 
-        // Traitement de l'édition du compte
-       // Route::post('user', 'UserController@updateProfile');
-
         // Gestion des salles de cinéma
         Route::group([
             'prefix' => 'movie-rooms',
             // 'namespace' => 'MovieRooms',
             'as' => 'movie_rooms.'
         ], function() {
-            // Liste des salles
-            Route::get('', 'MovieRoomController@index')->name('list');
-            // Ajout d'une salle
-            Route::match([ 'get', 'post' ], 'add', 'AddController@index')->name('add');
-            // Edition d'une salle
-            Route::match([ 'get', 'post' ], '{movieRoomPublicId}/edit', 'EditController@index')
-                ->name('edit')
-                ->where('movieRoomPublicId', '[^\/]+');
+
+            Route::resource('', 'MovieRoomController')->only([
+                'index', 'create', 'store', 'show', 'update',
+            ])
+                ->parameter('', 'movieRoomPublicId')
+                ->where([ 'movieRoomPublicId' => '[^\/]+' ])
+            ;
         });
     });
 });

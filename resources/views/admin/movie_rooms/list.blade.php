@@ -11,7 +11,7 @@
 @section('content')
 
     <p>
-        <a class="button" href="{{ route('admin.movie_rooms.add') }}" title="@lang('button.admin.movie_rooms.add.alt_label')">
+        <a class="button" href="{{ route('admin.movie_rooms.create') }}" title="@lang('button.admin.movie_rooms.add.alt_label')">
             @lang('button.admin.movie_rooms.add.label')
         </a>
     </p>
@@ -38,7 +38,7 @@
             </ul>
             <a 
                 class="button" 
-                href="{{ route('admin.movie_rooms.edit', [
+                href="{{ route('admin.movie_rooms.show', [
                     'movieRoomPublicId' => $room['public_id'],
                 ]) }}"
                 title="@lang('button.admin.movie_rooms.edit.alt_label', [

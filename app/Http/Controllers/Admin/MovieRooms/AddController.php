@@ -45,7 +45,7 @@ final class AddController extends AbstractController
 
         if($success)
         {
-            return redirect(route('admin.movie_rooms.list'));
+            return redirect(route('admin.movie_rooms.index'));
         }
 
         $formRender = with(new MovieRoomFormRender($form))->render();

@@ -11,7 +11,7 @@
 </nav>
 <nav class="modules">
     <a 
-        href="{{ route('admin.movie_rooms.list') }}" 
+        href="{{ route('admin.movie_rooms.index') }}"
         title="@lang('menu.movie_rooms.list.alt_label')"
         @class([
             'selected' => str_contains(url()->current(), '/movie-rooms')
