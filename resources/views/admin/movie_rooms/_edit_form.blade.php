@@ -1,4 +1,4 @@
-<form method="post">
+<form method="post" action="{{ $actionUrl ?? '' }}">
     @csrf
 
     <x-form-input 
@@ -14,7 +14,7 @@
                 name="public_id" 
                 required 
                 autocomplete="off" 
-                value="{{ $data['public_id'] ?? null }}" 
+                value="{{ old('public_id', $data['public_id'] ?? null) }}" 
             />
         </x-slot>
     </x-form-input>
@@ -32,7 +32,7 @@
                 name="name" 
                 required 
                 autocomplete="off" 
-                value="{{ $data['name'] ?? null }}" 
+                value="{{ old('name', $data['name'] ?? null) }}" 
             />
         </x-slot>
     </x-form-input>
@@ -50,7 +50,7 @@
                 name="floor" 
                 required 
                 autocomplete="off" 
-                value="{{ $data['floor'] ?? null }}" 
+                value="{{ old('floor', $data['floor'] ?? null) }}" 
                 min="-10"
                 max="10"
             />
@@ -70,7 +70,7 @@
                 name="nb_places" 
                 required 
                 autocomplete="off" 
-                value="{{ $data['nb_places'] ?? null }}" 
+                value="{{ old('nb_places', $data['nb_places'] ?? null) }}" 
                 min="20"
                 max="1000"
             />
@@ -90,7 +90,7 @@
                 name="nb_handicap_places" 
                 required 
                 autocomplete="off" 
-                value="{{ $data['nb_handicap_places'] ?? null }}" 
+                value="{{ old('nb_handicap_places', $data['nb_handicap_places'] ?? null) }}" 
                 min="20"
                 max="1000"
             />
