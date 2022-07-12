@@ -25,13 +25,31 @@ final class EditTest extends AbstractMovieRoomTest
         ]);
     }
 
-     /**
-     * Retourne l'URI de l'application à appeler
+    /**
+     * Retourne l'URI depuis laquelle la requête est appelé
      * @return string
      */
-    protected function getUri() : string
+    protected function getFromUri() : string
     {
-        return 'admin/movie-rooms/salle-2/edit';
+        return 'admin/movie-rooms/salle-2';
+    }
+
+    /**
+     * Retourne l'URI du traitement du formulaire
+     * @return string
+     */
+    protected function getFormUri() : string
+    {
+        return 'admin/movie-rooms/salle-2';
+    }
+
+    /**
+     * Retourne la méthode de la requête à appeler
+     * @return string
+     */
+    protected function getFormMethod() : string
+    {
+        return 'patch';
     }
 
     /**
@@ -41,7 +59,7 @@ final class EditTest extends AbstractMovieRoomTest
      */
     protected function getSuccessMessage(array $formData) : string
     {
-        return sprintf('La salle \'%s\' a été mis à jour.', $formData['name']);
+        return sprintf('La salle \'%s\' a été mise à jour.', $formData['name']);
     }
 
     /**

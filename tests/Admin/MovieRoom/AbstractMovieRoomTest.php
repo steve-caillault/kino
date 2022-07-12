@@ -59,6 +59,12 @@ abstract class AbstractMovieRoomTest extends TestCase
     abstract protected function getFormUri() : string;
 
     /**
+     * Retourne la méthode de la requête à appeler
+     * @return string
+     */
+    abstract protected function getFormMethod() : string;
+
+    /**
      * Retourne le modèle à vérifier après l'appel
      * @return ?MovieRoom
      */
@@ -81,10 +87,12 @@ abstract class AbstractMovieRoomTest extends TestCase
      */
     private function getAttemptCallingResponse(array $formParams = []) : \Illuminate\Testing\TestResponse
     {
+        $formMethod = $this->getFormMethod();
+
         return $this->actingAs($this->user, 'admin')
             ->followingRedirects()
             ->from($this->getFromUri())
-            ->post($this->getFormUri(), $formParams)
+            ->{ $formMethod }($this->getFormUri(), $formParams)
             ->assertStatus(200);
     }
 

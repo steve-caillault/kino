@@ -14,7 +14,10 @@ use Illuminate\Http\{
 /***/
 use App\Models\MovieRoom;
 use App\Http\Controllers\Admin\AbstractController;
-use App\Http\Requests\MovieRoom\CreateMovieRoomRequest;
+use App\Http\Requests\MovieRoom\{
+    CreateMovieRoomRequest,
+    EditMovieRoomRequest
+};
 use App\Store\MovieRoomStore;
 
 final class MovieRoomController extends AbstractController
@@ -84,4 +87,59 @@ final class MovieRoomController extends AbstractController
 
         return response()->redirectToRoute('admin.movie_rooms.index');
     }
+
+     /**
+     * Page d'édition d'une salle de cinéma
+     * @param string $movieRoomPublicId
+     * @param Request $request
+     * @return Renderable
+     */
+    public function show(string $movieRoomPublicId, Request $request) : Renderable
+    {
+        $movieRoom = MovieRoom::findByPublicId($movieRoomPublicId);
+        if($movieRoom === null)
+        {
+            abort(404);
+        }
+
+        $formDataKeys = [ 'public_id', 'name', 'floor', 'nb_places', 'nb_handicap_places', ];
+        $formData = collect($movieRoom->attributesToArray())
+            ->filter(fn(mixed $value, string $key) => in_array($key, $formDataKeys))
+            ->all();
+
+        $form = view('admin.movie_rooms._edit_form', [
+            'method' => 'patch',
+            'actionUrl' => route('admin.movie_rooms.show', [
+                'movieRoomPublicId' => $movieRoomPublicId,
+            ]),
+            'data' => $formData,
+        ]);
+
+        return view('admin.movie_rooms.edit', [
+            'form' => $form,
+            'movieRoomName' => $movieRoom->name,
+        ]);
+    }
+
+    /**
+     * Gestion de l'édition d'une salle de cinéma
+     * @param string $movieRoomPublicId
+     * @param EditMovieRoomRequest $request
+     * @return RedirectResponse
+     */
+    public function update(string $movieRoomPublicId, EditMovieRoomRequest $request) : RedirectResponse
+    {
+        $store = new MovieRoomStore($request);
+        $success = $store->save();
+
+        // Message flash
+        $messageFlashType = ($success) ? 'success' : 'error';
+        $messageFlash = ($success) ? 'form.movie_room.edit.success' : 'form.movie_room.edit.failure';
+        $request->session()->flash($messageFlashType, trans($messageFlash, [
+            'name' => $request->get('name'),
+        ]));
+
+        return response()->redirectToRoute('admin.movie_rooms.index');
+    }
+
 }   

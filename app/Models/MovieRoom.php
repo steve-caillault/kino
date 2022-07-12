@@ -19,7 +19,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 final class MovieRoom extends Model
 {
-    use HasFactory;
+    use HasFactory, WithPublicIdTrait;
 
     /**
      * The table associated with the model.
@@ -59,6 +59,5 @@ final class MovieRoom extends Model
         'nb_places' => 'integer',
         'nb_handicap_places' => 'integer',
     ];
-
 
 }

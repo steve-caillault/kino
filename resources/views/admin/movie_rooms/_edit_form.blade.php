@@ -1,5 +1,6 @@
 <form method="post" action="{{ $actionUrl ?? '' }}">
     @csrf
+    @method($method ?? 'post')
 
     <x-form-input 
         input-id="room-public-id"

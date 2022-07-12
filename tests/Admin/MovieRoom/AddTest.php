@@ -30,6 +30,15 @@ final class AddTest extends AbstractMovieRoomTest
     }
 
     /**
+     * Retourne la méthode de la requête à appeler
+     * @return string
+     */
+    protected function getFormMethod() : string
+    {
+        return 'post';
+    }
+
+    /**
      * Retourne le modèle à vérifier après l'appel
      * @return ?MovieRoom
      */
