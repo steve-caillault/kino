@@ -1,19 +1,17 @@
 {
     "private": true,
     "scripts": {
-        "dev": "npm run development",
-        "development": "mix",
-        "watch": "mix watch",
-        "watch-poll": "mix watch -- --watch-options-poll=1000",
-        "hot": "mix watch --hot",
-        "prod": "npm run production",
-        "production": "mix --production"
+        "dev": "vite",
+        "watch": "vite build --watch",
+        "dev:back": "vite --config vite.back-office.config.ts",
+        "build": "vite build",
+        "build:back": "vite build --config vite.back-office.config.ts",
+        "build:all": "npm run build && npm run build:test"
     },
     "devDependencies": {
-        "laravel-mix": "^6.0.6",
+        "laravel-vite-plugin": "^0.6.0",
         "postcss": "^8.1.14",
-        "resolve-url-loader": "^4.0.0",
-        "sass": "^1.32.11",
-        "sass-loader": "^11.0.1"
+        "vite": "^3.0.9",
+        "sass": "^1.54.8"
     }
 }
