@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('stylesheets')
-<link href="{{ asset('css/admin.css') }}" rel="stylesheet" />
+     <link href="@vite_asset_url(resources/sass/admin.scss)" rel="stylesheet" />
 @endsection
 
 @section('header-main-nav')

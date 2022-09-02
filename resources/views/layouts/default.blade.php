@@ -10,7 +10,7 @@
         <title>@yield('meta-title', 'Kino')</title>
 
         @section('stylesheets')
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
+            <link href="@vite_asset_url(resources/sass/app.scss)" rel="stylesheet" />
         @show
     </head>
     <body>
