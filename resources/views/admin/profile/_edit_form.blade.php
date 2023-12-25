@@ -30,7 +30,7 @@
         :label="trans('form.user.fields.first_name')"
     >
         <x-slot name="input">
-            <input type="text" id="first_name" name="first_name" required autocomplete="off" value="{{ $data['firstName'] }}" />
+            <input type="text" id="first-name" name="first_name" required autocomplete="off" value="{{ $data['firstName'] }}" />
         </x-slot>
     </x-form-input>
 
@@ -41,7 +41,7 @@
         :label="trans('form.user.fields.last_name')"
     >
         <x-slot name="input">
-            <input type="text" id="last_name" name="last_name" required autocomplete="off" value="{{ $data['lastName'] }}" />
+            <input type="text" id="last-name" name="last_name" required autocomplete="off" value="{{ $data['lastName'] }}" />
         </x-slot>
     </x-form-input>
 
