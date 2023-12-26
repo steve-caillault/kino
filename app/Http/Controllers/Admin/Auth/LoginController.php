@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Auth;
 
 use Illuminate\Support\Facades\Auth;
+/***/
 use App\Http\Controllers\Auth\AbstractLoginController;
 
 final class LoginController extends AbstractLoginController
