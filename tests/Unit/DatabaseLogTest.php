@@ -24,7 +24,7 @@ final class DatabaseLogTest extends TestCase
      * @dataProvider provider
      * @return void
      */
-    public function test(string $level, string $message) : void
+    public function testAdd(string $level, string $message) : void
     {
         $currentDate = (new \DateTimeImmutable());
 
@@ -37,9 +37,9 @@ final class DatabaseLogTest extends TestCase
      * Provider pour les tests
      * @return array
      */
-    public function provider() : array
+    public static function provider() : array
     {
-        $faker = $this->getFaker();
+        $faker = self::getFaker();
 
         return [
             'emergency' => [

@@ -30,9 +30,7 @@ final class MovieRoomController extends AbstractController
     public function index(Request $request) : Renderable
     {
         $itemsPerPage = 20;
-        $pagination = null;
 
-        $items = collect([]);
         $queryBuilder = (new MovieRoom())->newQuery()->orderBy('name', 'asc')->paginate($itemsPerPage);
         $pagination = $queryBuilder->render();
         $items = collect($queryBuilder->items());

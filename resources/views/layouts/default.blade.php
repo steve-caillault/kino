@@ -1,3 +1,4 @@
+@use('Illuminate\Support\Facades\Vite')
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -10,7 +11,7 @@
         <title>@yield('meta-title', 'Kino')</title>
 
         @section('stylesheets')
-            <link href="@vite_asset_url(resources/sass/app.scss)" rel="stylesheet" />
+            <link href="{{ Vite::asset('resources/sass/app.scss') }}" rel="stylesheet" />
         @show
     </head>
     <body>

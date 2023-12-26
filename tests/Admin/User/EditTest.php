@@ -99,9 +99,9 @@ final class EditTest extends TestCase
      * Provider pour les tests de succès
      * @return array
      */
-    public function successProvider() : array
+    public static function successProvider() : array
     {
-        $faker = $this->getFaker();
+        $faker = self::getFaker();
 
         return [
             // Test sans modification
@@ -197,9 +197,9 @@ final class EditTest extends TestCase
      * Provider pour les tests de validation
      * @return array
      */
-    public function validationFailureProvider() : array
+    public static function validationFailureProvider() : array
     {
-        $faker = $this->getFaker();
+        $faker = self::getFaker();
 
         $normalPassword = $faker->password(10);
         $longPassword = $faker->realTextBetween();

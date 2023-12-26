@@ -7,22 +7,25 @@
 namespace App\Monolog;
 
 use Monolog\Handler\AbstractProcessingHandler;
-use Monolog\Logger;
+use Monolog\{
+    Logger,
+    LogRecord
+};
 use Illuminate\Support\Facades\Log;
 /***/
 use App\Models\Log as LogModel;
 
 final class DatabaseHandler extends AbstractProcessingHandler
 {
-	protected function write(array $record) : void
+	protected function write(LogRecord $record) : void
 	{
 		try {
 			$request = request();
 
 			$log = new LogModel([
-				'level'	=> $record['level_name'] ?? Logger::EMERGENCY,
-				'path' => request()?->path(),
-				'message' => $record['message'] ?? '',
+				'level'	=> $record->level->getName(),
+				'path' => $request?->path(),
+				'message' => $record->message,
 				'user_agent' => $request->userAgent(),
 			]);
 			

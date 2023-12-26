@@ -14,6 +14,12 @@ abstract class TestCase extends BaseTestCase
     use CreatesApplication, DatabaseTransactions;
 
     /**
+     * Objet Faker pour générer des données aléatoires
+     * @var GeneratorFaker
+     */
+    private static GeneratorFaker $faker;
+
+    /**
      * Nombre de tests exécutés
      * @var int
      */
@@ -24,9 +30,9 @@ abstract class TestCase extends BaseTestCase
      * Nous n'utilisons pas le trait WithFaker de Laravel car il ne peut pas être utilisé dans les DataProvider
      * @return GeneratorFaker
      */
-    protected function getFaker() : GeneratorFaker
+    protected static function getFaker() : GeneratorFaker
     {
-        return with(new Faker)->get();
+        return (self::$faker ??= with(new Faker)->get());
     }
 
     /**

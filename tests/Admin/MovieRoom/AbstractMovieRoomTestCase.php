@@ -14,7 +14,7 @@ use App\Models\{
     MovieRoom
 };
 
-abstract class AbstractMovieRoomTest extends TestCase
+abstract class AbstractMovieRoomTestCase extends TestCase
 {
 
     /**
@@ -130,9 +130,9 @@ abstract class AbstractMovieRoomTest extends TestCase
      * Provider pour les tests de succès
      * @return array
      */
-    public function successProvider() : array
+    public static function successProvider() : array
     {
-        $faker = $this->getFaker();
+        $faker = self::getFaker();
 
         $totalPlaces = $faker->numberBetween(20, 1000);
 
@@ -181,9 +181,9 @@ abstract class AbstractMovieRoomTest extends TestCase
      * Provider pour les tests de validation
      * @return array
      */
-    public function validationFailureProvider() : array
+    public static function validationFailureProvider() : array
     {
-        $faker = $this->getFaker();
+        $faker = self::getFaker();
 
         return [
             // Sans données

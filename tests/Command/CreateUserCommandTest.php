@@ -84,9 +84,9 @@ final class CreateUserCommandTest extends TestCase
      * Provider pour les tests de succès
      * @return array
      */
-    public function successProvider() : array
+    public static function successProvider() : array
     {
-        $faker = $this->getFaker();
+        $faker = self::getFaker();
 
         return [
             // Permission admin
@@ -177,9 +177,9 @@ final class CreateUserCommandTest extends TestCase
      * Provider pour les tests d'échec de la validation
      * @return array
      */
-    public function failureValidationProvider() : array
+    public static function failureValidationProvider() : array
     {
-        $faker = $this->getFaker();
+        $faker = self::getFaker();
 
         return [
             // Paramètres manquants

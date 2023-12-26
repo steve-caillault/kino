@@ -178,9 +178,9 @@ final class ResetPasswordTest extends TestCase
      * Provider pour les erreurs de validation
      * @return array
      */
-    public function failureValidationProvider() : array
+    public static function failureValidationProvider() : array
     {
-        $faker = $this->getFaker();
+        $faker = self::getFaker();
         $email = 'admin-user@kino.me';
         $password = $faker->password(minLength: 10);
         $token = 'a770645965be316e9d0f94e829af1a5847c6cb89d977c499baecbf2079032b4c';

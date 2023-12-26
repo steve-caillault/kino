@@ -8,7 +8,7 @@ namespace Tests\Admin\MovieRoom;
 
 use App\Models\MovieRoom;
 
-final class EditTest extends AbstractMovieRoomTest
+final class EditTest extends AbstractMovieRoomTestCase
 {
      /**
      * Setup the test environment.
@@ -84,7 +84,7 @@ final class EditTest extends AbstractMovieRoomTest
      * Provider pour les tests de validation
      * @return array
      */
-    public function validationFailureProvider() : array
+    public static function validationFailureProvider() : array
     {
         $data = parent::validationFailureProvider();
 

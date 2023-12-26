@@ -8,7 +8,7 @@ namespace Tests\Admin\MovieRoom;
 
 use App\Models\MovieRoom;
 
-final class AddTest extends AbstractMovieRoomTest
+final class AddTest extends AbstractMovieRoomTestCase
 {
 
     /**

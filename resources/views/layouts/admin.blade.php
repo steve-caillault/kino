@@ -1,7 +1,9 @@
 @extends('layouts.default')
 
+@use('Illuminate\Support\Facades\Vite')
+
 @section('stylesheets')
-     <link href="@vite_asset_url(resources/sass/admin.scss)" rel="stylesheet" />
+     <link href="{{ Vite::asset('resources/sass/admin.scss') }}" rel="stylesheet" />
 @endsection
 
 @section('header-main-nav')

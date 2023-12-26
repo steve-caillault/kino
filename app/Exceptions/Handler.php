@@ -113,7 +113,7 @@ final class Handler extends ExceptionHandler
 
         $displayedMessage = $exception->getMessage();
 
-        if($displayedMessage === '')
+        if($displayedMessage === '' or $code === 404)
     	{
             $displayedMessage = match($code) {
                 401 => trans('error.authenticate'),
@@ -147,7 +147,7 @@ final class Handler extends ExceptionHandler
      * @param Throwable  $e
      * @return Response
      */
-    protected function renderExceptionResponse(/*Request*/ $request, Throwable $exception) /*: Response*/
+    protected function renderExceptionResponse(/*Request*/ $request, Throwable $exception) : Response
     {
         if(app()->environment('local'))
         {
@@ -182,7 +182,7 @@ final class Handler extends ExceptionHandler
             return response($content, $code);
         } catch(Throwable $fatalException) {
             Log::critical($fatalException->getMessage());
-            exit(trans('error.default'));
+            return response(trans('error.default'));
         }
     }
 

@@ -163,9 +163,9 @@ final class ForgotPasswordTest extends TestCase
      * Provider pour les erreurs de validation
      * @return array
      */
-    public function failureValidationProvider() : array
+    public static function failureValidationProvider() : array
     {
-        $faker = $this->getFaker();
+        $faker = self::getFaker();
 
         return [
             // Formulaire vide
