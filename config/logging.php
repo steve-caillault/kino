@@ -114,6 +114,14 @@ return [
             'path' => storage_path('logs/laravel.log'),
         ],
 
+        // Log des requêtes en base de données dans un fichier séparé
+        'database_query' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/database-queries.log'),
+            'enabled' => env('LOG_DATABASE_QUERY', false),
+        ],
+
+        // Enregistrement en base de données
         'database' => [
             'driver' => 'monolog',
             'handler' => \App\Monolog\DatabaseHandler::class,
