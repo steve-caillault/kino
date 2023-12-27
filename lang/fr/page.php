@@ -66,5 +66,34 @@ return [
                 'title' => 'Édition de salle de cinéma \':name\'',
             ],
         ],
+
+        // Films
+        'movies' => [
+            'button' => [
+                'add' => [
+                    'label' => 'Ajouter un film',
+                    'alt_label' => 'Ajouter un nouveau film.',
+                ],
+                'edit' => [
+                    'label' => 'Gérer le film',
+                    'alt_label' => 'Gérer le film \':name\'.',
+                ],
+            ],
+            'list' => [
+                'title' => 'Films',
+                'empty' => 'Aucun film n\'a été trouvé.',
+                'item' => [
+                    'fields' => [
+                        'produced_at' => 'Année de production',
+                    ],
+                ],
+            ],
+            'add' => [
+                'title' => 'Ajout d\'un film',
+            ],
+            'edit' => [
+                'title' => 'Édition du film \':name\'',
+            ],
+        ],
     ],
 ];

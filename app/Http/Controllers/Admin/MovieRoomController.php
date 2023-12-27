@@ -57,7 +57,7 @@ final class MovieRoomController extends AbstractController
     {
         $form = view('admin.movie_rooms._edit_form', [
             'actionUrl' => route('admin.movie_rooms.store'),
-            'room' => [],
+            'data' => [],
         ]);
 
         return view('admin.movie_rooms.create', [

@@ -14,22 +14,22 @@
 <nav class="modules">
     <a 
         href="{{ route('admin.movie_rooms.index') }}"
-        title="@lang('menu.movie_rooms.list.alt_label')"
+        title="@lang('menu.admin.movie_room.list.alt_label')"
         @class([
             'selected' => str_contains(url()->current(), '/movie-rooms')
         ])
     >
-        @lang('menu.movie_rooms.list.label')
+        @lang('menu.admin.movie_room.list.label')
     </a>
 
     <a
         href="{{ route('admin.movies.index') }}"
-        title="@lang('menu.movie.list.alt_label')"
+        title="@lang('menu.admin.movie.list.alt_label')"
         @class([
             'selected' => str_contains(url()->current(), '/movies')
         ])
     >
-        @lang('menu.movies.list.label')
+        @lang('menu.admin.movie.list.label')
     </a>
 </nav>
 @endsection

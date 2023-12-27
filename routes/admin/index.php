@@ -61,4 +61,17 @@ Route::group([
             ->where([ 'movieRoom' => '[^\/]+' ])
         ;
     });
+
+    // Gestion des films
+    Route::group([
+        'prefix' => 'movies',
+        'as' => 'movies.',
+    ], function() {
+        Route::resource('', 'MovieController')->only([
+            'index', 'create', 'store', 'show', 'update',
+        ])
+            ->parameter('', 'movie:public_id')
+            ->where([ 'movie' => '[^\/]+' ])
+        ;
+    });
 });

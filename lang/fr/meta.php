@@ -36,7 +36,20 @@ return [
             ],
             'edit' => [
                 'title' => 'Édition de salle de cinéma \':name\'',
-            ]
+            ],
+        ],
+
+        // Gestion des films
+        'movies' => [
+            'list' => [
+                'title' => 'Liste des films',
+            ],
+            'add' => [
+                'title' => 'Ajout d\'un film',
+            ],
+            'edit' => [
+                'title' => 'Édition du film \':name\'',
+            ],
         ],
     ],
 ];
