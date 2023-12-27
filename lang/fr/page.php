@@ -84,7 +84,7 @@ return [
                 'empty' => 'Aucun film n\'a été trouvé.',
                 'item' => [
                     'fields' => [
-                        'produced_at' => 'Année de production',
+                        'produced_at' => 'Année de production :',
                     ],
                 ],
             ],

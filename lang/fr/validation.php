@@ -81,5 +81,11 @@ return [
             'lte' => 'Le nombre de places adaptées à un handicap ne peut pas être supérieur à :value.',
         ],
 
+        'produced_at' => [
+            'required' => 'La date de production est nécessaire.',
+            'date_format' => 'La date de production est incorrecte.',
+            'after_or_equal' => 'La date de production ne peut pas être antérieure au :date.',
+            'before_or_equal' => 'La date de production ne peut pas être postérieure au :date.',
+        ],
     ],
 ];
