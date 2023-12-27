@@ -18,7 +18,7 @@ final class DatabaseLogTest extends TestCase
     use WithDatabaseLogTrait;
 
     /**
-     * Création d'un utilisateur avec succès
+     * Création d'un log en base de données avec succès
      * @param string $level Niveau d'urgence
      * @param string $message Message du log
      * @dataProvider provider
@@ -27,9 +27,7 @@ final class DatabaseLogTest extends TestCase
     public function testAdd(string $level, string $message) : void
     {
         $currentDate = (new \DateTimeImmutable());
-
         with(Log::channel('database'))->{ $level }($message);
-
         $this->checkLogAfter(strtoupper($level), $message, $currentDate);
     }
 

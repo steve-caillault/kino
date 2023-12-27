@@ -23,7 +23,7 @@ final class DatabaseHandler extends AbstractProcessingHandler
 			$request = request();
 
 			$log = new LogModel([
-				'level'	=> $record->level->getName(),
+				'level'	=> $record->level,
 				'path' => $request?->path(),
 				'message' => $record->message,
 				'user_agent' => $request->userAgent(),

@@ -6,14 +6,16 @@
 
 namespace App\Models;
 
+use Carbon\CarbonImmutable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Monolog\Level;
 
 /**
- * @property int $id
- * @property string $created_at
+ * @property ?int $id
+ * @property ?CarbonImmutable $created_at
  * @property ?string $path Chemin de la requête ou commande de la console
- * @property string $level Niveau d'urgence
+ * @property Level $level Niveau d'urgence
  * @property string $message
  * @property ?string $user_agent
  */
@@ -40,7 +42,8 @@ final class Log extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'created_at' => 'datetime:Y-m-d H:i:s',
+        'created_at' => 'immutable_datetime',
+        'level' => Level::class,
     ];
 
     /**

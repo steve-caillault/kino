@@ -6,6 +6,8 @@
 
 namespace Tests;
 
+use Monolog\Level;
+/***/
 use App\Models\Log;
 
 trait WithDatabaseLogTrait {
@@ -20,7 +22,7 @@ trait WithDatabaseLogTrait {
     }
 
     /**
-     * Vérifie que le dernier log en base de données correspont aux paramètres
+     * Vérifie que le dernier log en base de données correspond aux paramètres
      * @param string $level
      * @param string $message
      * @param \DateTimeImmutable $afterDateExpected Date après laquelle le log doit être créé
@@ -36,20 +38,19 @@ trait WithDatabaseLogTrait {
             0
         );
 
-        // Récupération du log du log
+        // Récupération du dernier log
         $lastLog = $this->getLastDatabaseLog();
-        $lastLogDate = ($lastLog !== null) ? new \DateTimeImmutable($lastLog->created_at) : null;
 
-        // Vérification de la date
-        $this->assertTrue($lastLogDate >= $afterDateExpected);
+        // Vérification de la date du log
+        $this->assertTrue($lastLog->created_at >= $afterDateExpected);
 
         // Vérification du niveau et du message
         $this->assertEquals([
-            'level' => strtoupper($level),
+            'level' => Level::fromName($level)->name,
             'message' => $message,
         ], [
-            'level' => $lastLog->level,
-            'message' => $lastLog->message,
+            'level' => $lastLog?->level?->name,
+            'message' => $lastLog?->message,
         ]);
     }
 
