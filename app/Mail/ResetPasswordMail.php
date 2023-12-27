@@ -31,7 +31,9 @@ final class ResetPasswordMail extends Mailable
     public function build()
     {
         $subject = trans('notification.reset_password.subject');
-        
+        extract(collect(config('mail.from'))->only([ 'address', 'name'])->all());
+
+        $this->from($address, $name);
         $this->to($this->user->email, $this->user->full_name);
         $this->subject($subject);
 
