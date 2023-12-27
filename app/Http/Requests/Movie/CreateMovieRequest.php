@@ -6,14 +6,13 @@
 
 namespace App\Http\Requests\Movie;
 
-use App\Http\Requests\Movie\AbstractMovieRequest;
 use App\Models\Movie;
 
 final class CreateMovieRequest extends AbstractMovieRequest
 {
 
     /**
-     * Retourne la salle de cinéma gérée
+     * Retourne le film géré
      * @return Movie
      */
     public function getMovie() : Movie

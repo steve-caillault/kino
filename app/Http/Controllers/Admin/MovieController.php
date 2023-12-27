@@ -132,7 +132,7 @@ final class MovieController extends AbstractController
             'name' => $request->get('name'),
         ]));
 
-        return response()->redirectToRoute('admin.movie.index');
+        return response()->redirectToRoute('admin.movies.index');
     }
 
 }
