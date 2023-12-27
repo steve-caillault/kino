@@ -17,7 +17,7 @@ final class CreateMovieRoomRequest extends AbstractMovieRoomRequest
      */
     public function getMovieRoom() : MovieRoom
     {
-        return $this->movieRoom ??= new MovieRoom();
+        return ($this->movieRoom ??= new MovieRoom());
     }
 
 }

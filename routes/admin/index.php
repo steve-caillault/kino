@@ -57,8 +57,8 @@ Route::group([
         Route::resource('', 'MovieRoomController')->only([
             'index', 'create', 'store', 'show', 'update',
         ])
-            ->parameter('', 'movieRoomPublicId')
-            ->where([ 'movieRoomPublicId' => '[^\/]+' ])
+            ->parameter('', 'movieRoom:public_id')
+            ->where([ 'movieRoom' => '[^\/]+' ])
         ;
     });
 });

@@ -17,7 +17,7 @@ final class EditMovieRoomRequest extends AbstractMovieRoomRequest
      */
     public function getMovieRoom() : MovieRoom
     {
-        return $this->movieRoom ??= MovieRoom::findByPublicId($this->route('movieRoomPublicId'));
+        return ($this->movieRoom ??= $this->route('movieRoom'));
     }
 
 }

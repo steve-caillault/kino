@@ -39,7 +39,7 @@
             <a 
                 class="button" 
                 href="{{ route('admin.movie_rooms.show', [
-                    'movieRoomPublicId' => $room['public_id'],
+                    'movieRoom' => $room['public_id'],
                 ]) }}"
                 title="@lang('button.admin.movie_rooms.edit.alt_label', [
                     'name' => $room['name']

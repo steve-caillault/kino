@@ -13,7 +13,6 @@ use Illuminate\Http\{
 };
 /***/
 use App\Models\MovieRoom;
-use App\Http\Controllers\Admin\AbstractController;
 use App\Http\Requests\MovieRoom\{
     CreateMovieRoomRequest,
     EditMovieRoomRequest
@@ -88,27 +87,21 @@ final class MovieRoomController extends AbstractController
 
      /**
      * Page d'édition d'une salle de cinéma
-     * @param string $movieRoomPublicId
+     * @param MovieRoom $movieRoom
      * @param Request $request
      * @return Renderable
      */
-    public function show(string $movieRoomPublicId, Request $request) : Renderable
+    public function show(MovieRoom $movieRoom, Request $request) : Renderable
     {
-        $movieRoom = MovieRoom::findByPublicId($movieRoomPublicId);
-        if($movieRoom === null)
-        {
-            abort(404);
-        }
-
         $formDataKeys = [ 'public_id', 'name', 'floor', 'nb_places', 'nb_handicap_places', ];
         $formData = collect($movieRoom->attributesToArray())
-            ->filter(fn(mixed $value, string $key) => in_array($key, $formDataKeys))
+            ->only($formDataKeys)
             ->all();
 
         $form = view('admin.movie_rooms._edit_form', [
             'method' => 'patch',
             'actionUrl' => route('admin.movie_rooms.show', [
-                'movieRoomPublicId' => $movieRoomPublicId,
+                'movieRoom' => $movieRoom->public_id,
             ]),
             'data' => $formData,
         ]);
@@ -121,11 +114,11 @@ final class MovieRoomController extends AbstractController
 
     /**
      * Gestion de l'édition d'une salle de cinéma
-     * @param string $movieRoomPublicId
+     * @param MovieRoom $movieRoom
      * @param EditMovieRoomRequest $request
      * @return RedirectResponse
      */
-    public function update(string $movieRoomPublicId, EditMovieRoomRequest $request) : RedirectResponse
+    public function update(MovieRoom $movieRoom, EditMovieRoomRequest $request) : RedirectResponse
     {
         $store = new MovieRoomStore($request);
         $success = $store->save();

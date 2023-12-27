@@ -43,9 +43,6 @@ abstract class AbstractMovieRoomRequest extends FormRequest
      */
     public function rules() : array
     {
-        /**
-         * @var MovieRoom
-         */
         $movieRoom = $this->getMovieRoom();
 
         $uniquePublicIdRule = Rule::unique(MovieRoom::class, 'public_id')->ignore($movieRoom);
