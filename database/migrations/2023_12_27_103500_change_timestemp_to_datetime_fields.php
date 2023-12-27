@@ -20,7 +20,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('logs', function (Blueprint $table) {
-            $table->datetime('created_at')->change();
+            $table->dateTime('created_at')->change();
         });
 
         Schema::table('movies', function (Blueprint $table) {
@@ -28,6 +28,9 @@ return new class extends Migration
             $table->dateTime('produced_at')->nullable(true)->default(null)->index('idx_produced_at')->after('name');
         });
 
+        Schema::table('password_resets', function(Blueprint $table) {
+            $table->dateTime('created_at')->change();
+        });
     }
 
     /**
@@ -45,6 +48,10 @@ return new class extends Migration
             $table->dropColumn('produced_at');
 
             $table->dateTime('production_date')->index('idx_production_date')->after('name');
+        });
+
+        Schema::table('password_resets', function(Blueprint $table) {
+            $table->timestamp('created_at')->change();
         });
     }
 };

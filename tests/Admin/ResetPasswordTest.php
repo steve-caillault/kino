@@ -46,6 +46,7 @@ final class ResetPasswordTest extends TestCase
         $this->tokenId = DB::table('password_resets')->insertGetId([
             'email' => $user->email,
             'token' => Hash::make(self::TOKEN),
+            'created_at' => \Carbon\CarbonImmutable::now(),
         ]);
     }
 
@@ -183,7 +184,7 @@ final class ResetPasswordTest extends TestCase
         $faker = self::getFaker();
         $email = 'admin-user@kino.me';
         $password = $faker->password(minLength: 10);
-        $token = 'a770645965be316e9d0f94e829af1a5847c6cb89d977c499baecbf2079032b4c';
+        $token = self::TOKEN;
 
         return [
             // Formulaire vide
