@@ -89,6 +89,8 @@ return [
     ],
 
     'admin' => [
+
+        // Gestion d'une salle de cinéma
         'movie_room' => [
             'fields' => [
                 'public_id' => 'Identifiant public',
@@ -108,7 +110,28 @@ return [
                     'success' => 'La salle \':name\' a été mise à jour.',
                     'failure' => 'Une erreur s\'est produite lors de la modification de la salle \':name\'.',
                 ],
-            ]
+            ],
+        ],
+
+        // Gestion d'un film
+        'movie' => [
+            'fields' => [
+                'public_id' => 'Identifiant public',
+                'name' => 'Nom du film',
+                'produced_at' => 'Date de production',
+            ],
+            'add' => [
+                'flash' => [
+                    'success' => 'Le film \':name\' a été créé.',
+                    'failure' => 'Une erreur s\'est produite lors de la création du film\':name\'.',
+                ],
+            ],
+            'edit' => [
+                'flash' => [
+                    'success' => 'Le film \':name\' a été mis à jour.',
+                    'failure' => 'Une erreur s\'est produite lors de la modification du film \':name\'.',
+                ],
+            ],
         ],
     ],
 

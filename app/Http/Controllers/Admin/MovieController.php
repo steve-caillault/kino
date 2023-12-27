@@ -22,7 +22,7 @@ use App\Store\MovieStore;
 final class MovieController extends AbstractController
 {
     /**
-     * Page de la liste des salles de cinéma
+     * Page de la liste des films
      * @param Request $request
      * @return Renderable
      */

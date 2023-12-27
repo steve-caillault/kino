@@ -28,7 +28,13 @@ final class MovieRoomStore extends AbstractStore {
         $request = $this->request;
 
         $movieRoom = $request->getMovieRoom();
-        $data = $request->validated();
+        $data = collect($request->validated())->only([
+            'public_id',
+            'name',
+            'floor',
+            'nb_places',
+            'nb_handicap_places',
+        ])->all();
 
         $movieRoom->fill($data);
 
