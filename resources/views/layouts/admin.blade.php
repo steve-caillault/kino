@@ -21,5 +21,15 @@
     >
         @lang('menu.movie_rooms.list.label')
     </a>
+
+    <a
+        href="{{ route('admin.movies.index') }}"
+        title="@lang('menu.movie.list.alt_label')"
+        @class([
+            'selected' => str_contains(url()->current(), '/movies')
+        ])
+    >
+        @lang('menu.movies.list.label')
+    </a>
 </nav>
 @endsection

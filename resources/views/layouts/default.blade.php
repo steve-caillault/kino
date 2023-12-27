@@ -18,7 +18,7 @@
         <div id="page">
             <header class="main">
                 @yield('header-main-nav')
-                <h1>@yield('page-title', trans('title.default'))</h1>
+                <h1>@yield('page-title', trans('page.home.title'))</h1>
             </header>
             <main>
                 @include('misc.flash')

@@ -6,7 +6,7 @@
 @endsection
 
 @section('page-title')
-@lang('title.error', [
+@lang('page.error.title', [
     'code' => $code,
 ])
 @endsection

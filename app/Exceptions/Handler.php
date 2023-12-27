@@ -116,10 +116,10 @@ final class Handler extends ExceptionHandler
         if($displayedMessage === '' or $code === 404)
     	{
             $displayedMessage = match($code) {
-                401 => trans('error.authenticate'),
-                403 => trans('error.forbidden'),
-                404 => trans('error.not_found'),
-                default => trans('error.default')
+                401 => trans('exception.authenticate'),
+                403 => trans('exception.forbidden'),
+                404 => trans('exception.not_found'),
+                default => trans('exception.default')
             };
     	}
 
@@ -161,7 +161,7 @@ final class Handler extends ExceptionHandler
     	if(! in_array($code, $allowedCodes) or $code === 500)
     	{
     		$code = 500;
-    		$displayedMessage = trans('error.default');
+    		$displayedMessage = trans('exception.default');
     	}
 
         if($request->ajax())
@@ -182,7 +182,7 @@ final class Handler extends ExceptionHandler
             return response($content, $code);
         } catch(Throwable $fatalException) {
             Log::critical($fatalException->getMessage());
-            return response(trans('error.default'));
+            return response(trans('exception.default'));
         }
     }
 

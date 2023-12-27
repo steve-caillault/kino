@@ -1,13 +1,13 @@
 @extends('layouts.admin')
 
 @section('meta-title')
-@lang('meta.title.admin.user', [
+@lang('meta.admin.user.title', [
     'user' => Auth::user()->nickname
 ])
 @endsection
 
 @section('page-title')
-@lang('title.admin.user')
+@lang('page.admin.user.title')
 @endsection
 
 @section('content')

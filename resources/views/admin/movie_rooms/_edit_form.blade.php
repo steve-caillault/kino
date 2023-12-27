@@ -6,7 +6,7 @@
         input-id="room-public-id"
         input-name="public_id"
         :required="true" 
-        :label="trans('form.movie_room.fields.public_id')"
+        :label="trans('form.admin.movie_room.fields.public_id')"
     >
         <x-slot name="input">
             <input 
@@ -24,7 +24,7 @@
         input-id="room-name"
         input-name="name"
         :required="true" 
-        :label="trans('form.movie_room.fields.name')"
+        :label="trans('form.admin.movie_room.fields.name')"
     >
         <x-slot name="input">
             <input 
@@ -42,7 +42,7 @@
         input-id="room-floor"
         input-name="floor"
         :required="true" 
-        :label="trans('form.movie_room.fields.floor')"
+        :label="trans('form.admin.movie_room.fields.floor')"
     >
         <x-slot name="input">
             <input 
@@ -62,7 +62,7 @@
         input-id="room-nb-places"
         input-name="nb_places"
         :required="true" 
-        :label="trans('form.movie_room.fields.nb_places')"
+        :label="trans('form.admin.movie_room.fields.nb_places')"
     >
         <x-slot name="input">
             <input 
@@ -82,7 +82,7 @@
         input-id="room-nb-handicap-places"
         input-name="nb_handicap_places"
         :required="true" 
-        :label="trans('form.movie_room.fields.nb_handicap_places')"
+        :label="trans('form.admin.movie_room.fields.nb_handicap_places')"
     >
         <x-slot name="input">
             <input 
@@ -98,6 +98,6 @@
         </x-slot>
     </x-form-input>
     
-    <x-form-input-submit :label="trans('form.submit.label')"></x-form-input-submit>
+    <x-form-input-submit :label="trans('form.input.submit.default.label')"></x-form-input-submit>
     
 </form>

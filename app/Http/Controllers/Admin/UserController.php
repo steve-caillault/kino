@@ -52,7 +52,7 @@ final class UserController extends AbstractController
         $inputs = collect($request->validated());
 
         /**
-         * @var User
+         * @var User $user
          */
         $user = $request->user();
 
@@ -72,7 +72,7 @@ final class UserController extends AbstractController
         $success = $user->save();
 
         $messageFlashType = ($success) ? 'success' : 'error';
-        $messageFlash = ($success) ? 'form.user.success' : 'form.user.failure';
+        $messageFlash = ($success) ? 'form.user.profile.edit.flash.success' : 'form.user.profile.edit.flash.failure';
         $request->session()->flash($messageFlashType, trans($messageFlash));
 
         return back();

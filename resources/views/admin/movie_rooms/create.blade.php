@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
 @section('meta-title')
-@lang('meta.title.admin.movie_rooms.add')
+@lang('meta.admin.movie_rooms.add.title')
 @endsection
 
 @section('page-title')
-@lang('title.admin.movie_rooms.add')
+@lang('page.admin.movie_rooms.add.title')
 @endsection
 
 @section('content')

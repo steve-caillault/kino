@@ -23,7 +23,7 @@ final class Administrator
 		
 		if($user === null or ! $user->isAdministrator())
 		{
-			abort(403, __('error.forbidden'));
+			abort(403, __('exception.forbidden'));
 		}
 		
 		return $next($request);

@@ -77,7 +77,7 @@ final class MovieRoomController extends AbstractController
 
         // Message flash
         $messageFlashType = ($success) ? 'success' : 'error';
-        $messageFlash = ($success) ? 'form.movie_room.add.success' : 'form.movie_room.add.failure';
+        $messageFlash = ($success) ? 'form.admin.movie_room.add.flash.success' : 'form.admin.movie_room.add.flash.failure';
         $request->session()->flash($messageFlashType, trans($messageFlash, [
             'name' => $request->get('name'),
         ]));
@@ -125,7 +125,7 @@ final class MovieRoomController extends AbstractController
 
         // Message flash
         $messageFlashType = ($success) ? 'success' : 'error';
-        $messageFlash = ($success) ? 'form.movie_room.edit.success' : 'form.movie_room.edit.failure';
+        $messageFlash = ($success) ? 'form.admin.movie_room.edit.flash.success' : 'form.admin.movie_room.edit.flash.failure';
         $request->session()->flash($messageFlashType, trans($messageFlash, [
             'name' => $request->get('name'),
         ]));

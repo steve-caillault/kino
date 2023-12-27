@@ -1,11 +1,11 @@
 @extends('layouts.default')
 
 @section('meta-title')
-@lang('meta.title.login')
+@lang('meta.login.title')
 @endsection
 
 @section('page-title')
-@lang('title.login')
+@lang('page.login.title')
 @endsection
 
 @section('content')
@@ -17,7 +17,7 @@
         'form-input',
         'form-input-error' => $errors->has('nickname'),
     ])>
-        <label for="nickname">{{ __('form.auth.fields.nickname') }}</label>
+        <label for="nickname">@lang('form.auth.login.fields.nickname')</label>
 
         <input 
             id="nickname" 
@@ -37,7 +37,7 @@
         'form-input',
         'form-input-error' => $errors->has('password'),
     ])>
-        <label for="password">@lang('form.auth.fields.password')</label>
+        <label for="password">@lang('form.auth.login.fields.password')</label>
 
         <input 
             id="password"
@@ -55,17 +55,19 @@
     <p>
         <a 
             href="{{ $forgotPasswordUri }}" 
-            title="@lang('form.auth.forgot_password.alt_label')"
-        >@lang('form.auth.forgot_password.label')</a>
+            title="@lang('form.auth.login.button.forgot_password.alt_label')"
+        >
+            @lang('form.auth.login.button.forgot_password.label')
+        </a>
     </p>
 
     <div class="form-input">
         <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} />
-        <label for="remember">{{ __('form.auth.fields.remember') }}</label>
+        <label for="remember">@lang('form.auth.login.fields.remember')</label>
     </div>
 
     <div class="form-input form-input-submit">
-        <input class="button" type="submit" value="{{ __('form.auth.fields.submit') }}" />
+        <input class="button" type="submit" value="@lang('form.auth.login.fields.submit')" />
     </div>
 </form>
 

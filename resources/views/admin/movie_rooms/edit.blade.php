@@ -1,13 +1,13 @@
 @extends('layouts.admin')
 
 @section('meta-title')
-@lang('meta.title.admin.movie_rooms.edit', [
+@lang('meta.admin.movie_rooms.edit.title', [
     'name' => $movieRoomName,
 ])
 @endsection
 
 @section('page-title')
-@lang('title.admin.movie_rooms.edit', [
+@lang('page.admin.movie_rooms.edit.title', [
     'name' => $movieRoomName,
 ])
 @endsection

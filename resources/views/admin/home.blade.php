@@ -1,13 +1,13 @@
 @extends('layouts.admin')
 
 @section('meta-title')
-@lang('meta.title.admin.home')
+@lang('meta.admin.home.title')
 @endsection
 
 @section('page-title')
-@lang('title.admin.home')
+@lang('page.admin.home.title')
 @endsection
 
 @section('content')
-<p>{{ __('message.admin.home') }}</p>
+<p>@lang('page.admin.home.sectionChoiceText')</p>
 @endsection

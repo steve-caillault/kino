@@ -1,11 +1,11 @@
 @extends('layouts.default')
 
 @section('meta-title')
-@lang('meta.title.reset_password')
+@lang('meta.reset_password.title')
 @endsection
 
 @section('page-title')
-@lang('title.reset_password')
+@lang('page.reset_password.title')
 @endsection
 
 @section('content')
@@ -76,7 +76,7 @@
     </div>
 
     <div class="form-input form-input-submit">
-        <input class="button" type="submit" value="@lang('form.auth.reset_password.submit')" />
+        <input class="button" type="submit" value="@lang('form.auth.reset_password.fields.submit')" />
     </div>
 </form>
 

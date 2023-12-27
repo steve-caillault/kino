@@ -33,7 +33,7 @@ abstract class FormRequest extends Request
         }
         else
         {
-            $this->session()->flash('error', trans('form.invalidated'));
+            $this->session()->flash('error', trans('form.invalidated.message'));
         }
         parent::failedValidation($validator);
     }

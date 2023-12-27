@@ -1,11 +1,11 @@
 @extends('layouts.default')
 
 @section('meta-title')
-@lang('meta.title.forgot_password')
+@lang('meta.forgot_password.title')
 @endsection
 
 @section('page-title')
-@lang('title.forgot_password')
+@lang('page.forgot_password.title')
 @endsection
 
 @section('content')
@@ -36,13 +36,13 @@
     <p>
         <a 
             href="{{ $loginUri }}" 
-            title="@lang('form.auth.forgot_password.login.alt_label')"
-        >@lang('form.auth.forgot_password.login.label')</a>
+            title="@lang('form.auth.forgot_password.button.login.alt_label')"
+        >@lang('form.auth.forgot_password.button.login.label')</a>
     </p>
 
 
     <div class="form-input form-input-submit">
-        <input class="button" type="submit" value="@lang('form.auth.forgot_password.submit')" />
+        <input class="button" type="submit" value="@lang('form.auth.forgot_password.fields.submit')" />
     </div>
 </form>
 
