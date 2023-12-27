@@ -24,7 +24,7 @@
         <p>@lang('page.admin.movies.list.empty')</p>
     @else
         @foreach($movies as $movie)
-        <section class="movies">
+        <section class="collection">
             <h2>{{ $movie['name'] }}</h2>
             <ul>
                 <li>
