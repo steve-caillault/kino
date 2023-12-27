@@ -23,6 +23,11 @@ return new class extends Migration
             $table->datetime('created_at')->change();
         });
 
+        Schema::table('movies', function (Blueprint $table) {
+            $table->dropColumn('production_date');
+            $table->dateTime('produced_at')->nullable(true)->default(null)->index('idx_produced_at')->after('name');
+        });
+
     }
 
     /**
@@ -34,6 +39,12 @@ return new class extends Migration
     {
         Schema::table('logs', function (Blueprint $table) {
             $table->timestamp('created_at')->change();
+        });
+
+        Schema::table('movies', function (Blueprint $table) {
+            $table->dropColumn('produced_at');
+
+            $table->dateTime('production_date')->index('idx_production_date')->after('name');
         });
     }
 };

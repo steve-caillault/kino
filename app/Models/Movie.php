@@ -6,21 +6,21 @@
 
 namespace App\Models;
 
-use DateTimeImmutable;
+use Carbon\CarbonImmutable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
- * @property int $id
+ * @property ?int $id
  * @property string $public_id Identifiant public
  * @property string $name Nom
- * @property DateTimeImmutable $production_date
+ * @property ?CarbonImmutable $produced_at
  */
 final class Movie extends Model
 {
     use HasFactory;
 
-    /**self
+    /**
      * The table associated with the model.
      *
      * @var string
@@ -42,7 +42,7 @@ final class Movie extends Model
     protected $fillable = [
         'public_id',
         'name',
-        'production_date',
+        'produced_at',
     ];
 
     /**
@@ -52,17 +52,7 @@ final class Movie extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'production_date' => 'datetime:Y-m-d',
+        'produced_at' => 'immutable_datetime:Y-m-d',
     ];
-
-     /**
-     * Modification des permissions
-     * @param string $date
-     * @return DateTimeImmutable
-     */
-    public function getProductionDateAttribute(string $date) : DateTimeImmutable
-    {
-        return new DateTimeImmutable($date);
-    }
 
 }

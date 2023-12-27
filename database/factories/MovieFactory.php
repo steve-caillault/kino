@@ -22,7 +22,7 @@ final class MovieFactory extends Factory
         return [
             'public_id' => $this->faker->slug(20),
             'name' => $this->faker->name(),
-            'production_date' => $productionDateTime->format('Y-m-d H:i:s'),
+            'produced_at' => $productionDateTime,
         ];
     }
 }
