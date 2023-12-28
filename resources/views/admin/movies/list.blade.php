@@ -21,15 +21,15 @@
     </p>
 
     @if(count($movies) === 0)
-        <p>@lang('page.admin.movies.list.empty')</p>
+        <p class="empty-list">@lang('page.admin.movies.list.empty')</p>
     @else
         @foreach($movies as $movie)
-        <section class="collection">
+        <section class="collection-item">
             <h2>{{ $movie['name'] }}</h2>
             <ul>
                 <li>
                     @lang('page.admin.movies.list.item.fields.produced_at')
-                    {{ $movie['produced_at'] }}
+                    <time datetime="{{ $movie['produced_at']['datetime'] }}">{{ $movie['produced_at']['formatted'] }}</time>
                 </li>
             </ul>
             <a 

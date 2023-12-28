@@ -35,14 +35,21 @@ final class MovieController extends AbstractController
         $pagination = $queryBuilder->render();
         $items = collect($queryBuilder->items());
 
-        $movies = $items->map(fn(Movie $movie) =>  [
-            'public_id' => $movie->public_id,
-            'name' => $movie->name,
-            'produced_at' => Date::getI18nFormat($movie->produced_at->toDateTimeImmutable(), [
+        $movies = $items->map(function(Movie $movie) {
+            $producedAtFormatted = Date::getI18nFormat($movie->produced_at->toDateTimeImmutable(), [
                 'dateType' => \IntlDateFormatter::RELATIVE_SHORT,
                 'timeType' => \IntlDateFormatter::NONE,
-            ]),
-        ]);
+            ]);
+
+            return [
+                'public_id' => $movie->public_id,
+                'name' => $movie->name,
+                'produced_at' => [
+                    'datetime' => $movie->produced_at->format('c'),
+                    'formatted' => $producedAtFormatted,
+                ],
+            ];
+        });
 
         return view('admin.movies.list', [
             'movies' => $movies,

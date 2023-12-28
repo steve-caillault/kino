@@ -21,10 +21,10 @@
     </p>
 
     @if(count($rooms) === 0)
-        <p>@lang('page.admin.movie_rooms.list.empty')</p>
+        <p class="empty-list">@lang('page.admin.movie_rooms.list.empty')</p>
     @else
         @foreach($rooms as $room)
-        <section class="collection">
+        <section class="collection-item">
             <h2>{{ $room['name'] }}</h2>
             <ul>
                 <li>
