@@ -49,9 +49,9 @@ abstract class AbstractMovieRequest extends FormRequest
         $uniqueNameRule = Rule::unique(Movie::class, 'name')->ignore($movie);
 
         return [
-            'public_id' => [ 'bail', 'required', 'string', 'min:5', 'max:25', $uniquePublicIdRule, ],
-            'name' => [ 'bail', 'required', 'string', 'min:5', 'max:25', $uniqueNameRule, ],
-            'produced_at' => [ 'bail', 'required', 'date_format:Y-m-d', 'after_or_equal:1895-03-19', 'before_or_equal:9999-12-31', ],
+            'public_id' => [ 'bail', 'required', 'string', 'min:5', 'max:100', $uniquePublicIdRule, ],
+            'name' => [ 'bail', 'required', 'string', 'min:5', 'max:100', $uniqueNameRule, ],
+            'produced_at' => [ 'bail', 'required', 'date_format:Y-m-d', 'after_or_equal:1895-03-19', 'before:9999-12-31', ],
         ];
     }
 

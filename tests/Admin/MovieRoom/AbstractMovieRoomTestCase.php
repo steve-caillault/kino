@@ -9,6 +9,7 @@ namespace Tests\Admin\MovieRoom;
 use Symfony\Component\DomCrawler\Crawler;
 /***/
 use Tests\TestCase;
+use Tests\Admin\WithAdminUser;
 use App\Models\{
     AdminUser,
     MovieRoom
@@ -16,12 +17,7 @@ use App\Models\{
 
 abstract class AbstractMovieRoomTestCase extends TestCase
 {
-
-    /**
-     * Utilisateur connecté
-     * @var AdminUser
-     */
-    private AdminUser $user;
+    use WithAdminUser;
 
     /**
      * Setup the test environment.
@@ -33,12 +29,7 @@ abstract class AbstractMovieRoomTestCase extends TestCase
         parent::setUp();
 
         // Création de l'utilisateur
-        $this->user = AdminUser::factory()->create([
-            'nickname' => 'admin-user',
-            'password' => 'admin-user-password',
-            'email' => 'admin-user@kino.me',
-            'permissions' => [ 'ADMIN', ],
-        ]);
+        $this->initAdminUser();
 
         MovieRoom::factory()->create([
             'public_id' => 'salle-1',
@@ -89,7 +80,7 @@ abstract class AbstractMovieRoomTestCase extends TestCase
     {
         $formMethod = $this->getFormMethod();
 
-        return $this->actingAs($this->user, 'admin')
+        return $this->actingAs($this->mainAdminUser, 'admin')
             ->followingRedirects()
             ->from($this->getFromUri())
             ->{ $formMethod }($this->getFormUri(), $formParams)
