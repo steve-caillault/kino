@@ -20,8 +20,8 @@ final class MovieFactory extends Factory
         $productionDateTime = $this->faker->dateTimeBetween(startDate: '1895-12-28');
 
         return [
-            'public_id' => $this->faker->slug(3),
-            'name' => $this->faker->name(),
+            'public_id' => substr($this->faker->slug(3), 0, 100),
+            'name' => substr($this->faker->name(), 0, 100),
             'produced_at' => $productionDateTime,
         ];
     }

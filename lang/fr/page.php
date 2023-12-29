@@ -50,7 +50,7 @@ return [
 
             'list' => [
                 'title' => 'Salles de cinéma',
-                'empty' => 'Aucune salle de cinéma n\'a été trouvé.',
+                'empty' => 'Aucune salle de cinéma n\'a été trouvée.',
                 'item' => [
                     'fields' => [
                         'floor' => 'Étage :',

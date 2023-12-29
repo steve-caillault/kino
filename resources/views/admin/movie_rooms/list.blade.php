@@ -29,15 +29,15 @@
             <ul>
                 <li>
                     @lang('page.admin.movie_rooms.list.item.fields.floor')
-                    {{ $room['floor'] }}
+                    <span class="counter">{{ $room['floor'] }}</span>
                 </li>
                 <li>
                     @lang('page.admin.movie_rooms.list.item.fields.nb_places')
-                    {{ $room['nb_places'] }}
+                    <span class="counter">{{ $room['nb_places'] }}</span>
                 </li>
                 <li>
                     @lang('page.admin.movie_rooms.list.item.fields.nb_handicap_places')
-                    {{ $room['nb_handicap_places'] }}
+                    <span class="counter">{{ $room['nb_handicap_places'] }}</span>
                 </li>
             </ul>
             <a 
