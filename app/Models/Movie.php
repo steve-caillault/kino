@@ -7,14 +7,18 @@
 namespace App\Models;
 
 use Carbon\CarbonImmutable;
+use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property ?int $id
  * @property string $public_id Identifiant public
  * @property string $name Nom
  * @property ?CarbonImmutable $produced_at
+ *
+ * @property Collection<int, MovieContributor> $contributors
  */
 final class Movie extends Model
 {
@@ -54,5 +58,14 @@ final class Movie extends Model
         'id' => 'integer',
         'produced_at' => 'immutable_datetime:Y-m-d',
     ];
+
+    /**
+     * Retourne la relation avec les contributeurs du film
+     * @return HasMany
+     */
+    public function contributors() : HasMany
+    {
+        return $this->hasMany(MovieContributor::class, 'movie_id', 'id');
+    }
 
 }
