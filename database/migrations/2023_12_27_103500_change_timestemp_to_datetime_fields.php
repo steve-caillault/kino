@@ -20,7 +20,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('logs', function (Blueprint $table) {
-            $table->dateTime('created_at')->change();
+            $table->dateTime('created_at')->useCurrent()->nullable(false)->change();
         });
 
         Schema::table('movies', function (Blueprint $table) {
@@ -29,7 +29,7 @@ return new class extends Migration
         });
 
         Schema::table('password_resets', function(Blueprint $table) {
-            $table->dateTime('created_at')->change();
+            $table->dateTime('created_at')->useCurrent()->nullable(false)->change();
         });
     }
 
@@ -41,7 +41,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('logs', function (Blueprint $table) {
-            $table->timestamp('created_at')->change();
+            $table->timestamp('created_at')->useCurrent()->nullable(false)->change();
         });
 
         Schema::table('movies', function (Blueprint $table) {
@@ -51,7 +51,7 @@ return new class extends Migration
         });
 
         Schema::table('password_resets', function(Blueprint $table) {
-            $table->timestamp('created_at')->change();
+            $table->timestamp('created_at')->useCurrent()->nullable(false)->change();
         });
     }
 };
